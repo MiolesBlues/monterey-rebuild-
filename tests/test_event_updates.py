@@ -49,6 +49,32 @@ class EventUpdateTests(unittest.TestCase):
         redraw = next(i for i, command in enumerate(commands) if command[1] == '!Redraw')
         self.assertLess(centered, redraw)
 
+    def test_music_restores_background_and_foreground_after_theme_startup(self):
+        memory = 'MUSIC1\n' + 'Song'.encode().hex().upper() + '\n\n' + 'FFFFFF'.encode().hex().upper() + '\n\n'
+        lua = self.runtime('MusicAnimation.lua', BackgroundColor='f94151', ForegroundColor='FFFFFF')
+        skin = lua.globals().SKIN
+        (Path(skin.vars.CURRENTPATH) / 'last-track.txt').write_bytes(memory.encode())
+        lua.execute('Initialize()')
+        lua.execute('''
+            local originalBang = SKIN.Bang
+            function SKIN:Bang(...)
+                local args = {...}
+                if args[1] == '!UpdateMeasure' and args[2] == 'CoverForegroundColor' then
+                    self.vars.ForegroundColor = '000000'
+                end
+                return originalBang(self, ...)
+            end
+        ''')
+        # Auto theme can run after the music script initializes.
+        skin.vars.BackgroundColor = 'f94151'
+        skin.vars.ForegroundColor = 'FFFFFF'
+        lua.execute('clear(); Update()')
+        self.assertEqual(skin.vars.BackgroundColor, 'FFFFFF')
+        self.assertEqual(skin.vars.ForegroundColor, '000000')
+        commands = [skin.commands[i] for i in range(1, len(skin.commands) + 1)]
+        self.assertTrue(any(command[1] == '!UpdateMeterGroup' and command[2] == 'Text' for command in commands))
+        self.assertTrue(any(command[1] == '!UpdateMeterGroup' and command[2] == 'Buttons' for command in commands))
+
     def test_music_retries_artwork_after_title_changes_at_same_path(self):
         lua = self.runtime('MusicAnimation.lua')
         artwork = Path(lua.globals().SKIN.vars.CURRENTPATH) / 'art.jpg'
