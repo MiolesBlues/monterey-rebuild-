@@ -85,6 +85,21 @@ class EventUpdateTests(unittest.TestCase):
         self.assertEqual(skin.vars.BackgroundColor, 'FFFFFF')
         self.assertEqual(skin.vars.ForegroundColor, '000000')
 
+    def test_music_hover_preview_only_opens_for_wide(self):
+        for size in ('Small', 'Medium', 'Large', 'Wide'):
+            with self.subTest(size=size):
+                lua = self.runtime('MusicAnimation.lua', WidgetSize=size, MusicZoomHover='1')
+                skin = lua.globals().SKIN
+                artwork = Path(skin.vars.CURRENTPATH) / 'art.jpg'
+                artwork.write_bytes(b'\xff\xd8' + b'a' * 30 + b'\xff\xd9')
+                skin.GetMeasure(skin, 'MusicProcessRunning').value = 1
+                skin.GetMeasure(skin, 'TitleMeasure').text = 'Song'
+                skin.GetMeasure(skin, 'CoverMeasure').text = str(artwork)
+                skin.GetMeasure(skin, 'MusicCursorX').value = 150
+                skin.GetMeasure(skin, 'MusicCursorY').value = 150
+                lua.execute('MetadataChanged(); clear(); AnimationFrame()')
+                self.assertEqual(lua.globals().count('!ActivateConfig'), int(size == 'Wide'))
+
     def test_music_retries_artwork_after_title_changes_at_same_path(self):
         lua = self.runtime('MusicAnimation.lua')
         artwork = Path(lua.globals().SKIN.vars.CURRENTPATH) / 'art.jpg'
