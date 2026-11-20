@@ -68,12 +68,22 @@ class EventUpdateTests(unittest.TestCase):
         # Auto theme can run after the music script initializes.
         skin.vars.BackgroundColor = 'f94151'
         skin.vars.ForegroundColor = 'FFFFFF'
+        skin.GetMeasure(skin, 'MusicProcessRunning').value = 1
+        skin.GetMeasure(skin, 'StateMeasure').value = 1
+        skin.GetMeasure(skin, 'TitleMeasure').text = 'Song'
         lua.execute('clear(); Update()')
         self.assertEqual(skin.vars.BackgroundColor, 'FFFFFF')
         self.assertEqual(skin.vars.ForegroundColor, '000000')
         commands = [skin.commands[i] for i in range(1, len(skin.commands) + 1)]
         self.assertTrue(any(command[1] == '!UpdateMeterGroup' and command[2] == 'Text' for command in commands))
         self.assertTrue(any(command[1] == '!UpdateMeterGroup' and command[2] == 'Buttons' for command in commands))
+        self.assertEqual((Path(skin.vars.CURRENTPATH) / 'last-track.txt').read_bytes(), memory.encode())
+
+        skin.vars.BackgroundColor = 'f94151'
+        skin.vars.ForegroundColor = 'FFFFFF'
+        lua.execute('clear(); Update()')
+        self.assertEqual(skin.vars.BackgroundColor, 'FFFFFF')
+        self.assertEqual(skin.vars.ForegroundColor, '000000')
 
     def test_music_retries_artwork_after_title_changes_at_same_path(self):
         lua = self.runtime('MusicAnimation.lua')
