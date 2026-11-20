@@ -1,6 +1,7 @@
 """Change-driven updates using the existing Lua 5.1 Rainmeter harness."""
 import json
 import unittest
+from pathlib import Path
 
 import test_lua
 
@@ -27,6 +28,32 @@ class EventUpdateTests(unittest.TestCase):
         lua.execute("SKIN:GetMeasure('MusicProcessRunning').value=1; SKIN:GetMeasure('TitleMeasure').text='Song'; clear(); MetadataChanged()")
         self.assertEqual(lua.globals().count('!Redraw'), 1)
         lua.execute("clear(); MetadataChanged()")
+        self.assertEqual(lua.globals().count('!Redraw'), 0)
+
+    def test_music_retries_artwork_after_title_changes_at_same_path(self):
+        lua = self.runtime('MusicAnimation.lua')
+        artwork = Path(lua.globals().SKIN.vars.CURRENTPATH) / 'art.jpg'
+        old = b'\xff\xd8' + b'a' * 30 + b'\xff\xd9'
+        new = b'\xff\xd8' + b'b' * 30 + b'\xff\xd9'
+        artwork.write_bytes(old)
+        lua.globals().SKIN.GetMeasure(lua.globals().SKIN, 'MusicProcessRunning').value = 1
+        lua.globals().SKIN.GetMeasure(lua.globals().SKIN, 'CoverMeasure').text = str(artwork)
+        lua.globals().SKIN.GetMeasure(lua.globals().SKIN, 'TitleMeasure').text = 'First'
+        lua.execute('MetadataChanged()')
+        previous = lua.globals().SKIN.vars.MusicCoverCurrent
+        self.assertEqual(Path(previous).read_bytes(), old)
+
+        lua.globals().SKIN.GetMeasure(lua.globals().SKIN, 'TitleMeasure').text = 'Second'
+        lua.execute('MetadataChanged(); for i=1,11 do Update() end; clear()')
+        artwork.write_bytes(new)
+        lua.execute('Update()')
+        current = lua.globals().SKIN.vars.MusicCoverCurrent
+        self.assertNotEqual(current, previous)
+        self.assertEqual(Path(current).read_bytes(), new)
+        self.assertEqual(lua.globals().SKIN.vars.MusicCoverPrevious, previous)
+        self.assertEqual(lua.globals().count('!UpdateMeasure'), 1)
+
+        lua.execute('clear(); Update()')
         self.assertEqual(lua.globals().count('!Redraw'), 0)
 
     def test_weather_same_data_does_not_redraw(self):
