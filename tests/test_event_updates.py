@@ -210,6 +210,54 @@ class EventUpdateTests(unittest.TestCase):
         lua.execute('Receive()')
         self.assertEqual(lua.globals().count('!Redraw'), 1)
 
+    def test_music_saved_cover_requires_matching_active_session(self):
+        metadata='MUSIC1\n'+ 'Song'.encode().hex().upper()+'\n\n'+'FFFFFF'.encode().hex().upper()+'\njpg\n'
+        image=b'\xff\xd8'+b'a'*30+b'\xff\xd9'
+        for title,active,cover,expected in (('Song',0,image,False),('Other',1,image,False),
+                                             ('Song',1,image,True),('Song',1,None,False),
+                                             ('Song',1,b'broken',False)):
+            with self.subTest(title=title,active=active,cover=cover):
+                lua=self.runtime('MusicAnimation.lua')
+                folder=Path(lua.globals().SKIN.vars.CURRENTPATH)
+                (folder/'last-track.txt').write_bytes(metadata.encode())
+                if cover is not None: (folder/'last-cover.jpg').write_bytes(cover)
+                lua.execute('Initialize()')
+                skin=lua.globals().SKIN
+                self.assertIsNone(skin.vars.MusicCoverCurrent)
+                skin.GetMeasure(skin,'MusicProcessRunning').value=active
+                skin.GetMeasure(skin,'TitleMeasure').text=title
+                lua.execute('MetadataChanged()')
+                self.assertEqual(skin.vars.MusicCoverCurrent==str(folder/'last-cover.jpg'),expected)
+                if not active:
+                    lua.execute('Update()')
+                    self.assertNotEqual(skin.vars.BackgroundColor,'FFFFFF')
+
+    def test_music_identical_cover_skips_decode_and_disk_write(self):
+        lua=self.runtime('MusicAnimation.lua')
+        skin=lua.globals().SKIN
+        artwork=Path(skin.vars.CURRENTPATH)/'art.jpg'
+        artwork.write_bytes(b'\xff\xd8'+b'a'*30+b'\xff\xd9')
+        skin.GetMeasure(skin,'MusicProcessRunning').value=1
+        skin.GetMeasure(skin,'TitleMeasure').text='Song'
+        skin.GetMeasure(skin,'CoverMeasure').text=str(artwork)
+        lua.execute('MetadataChanged(); clear()')
+        lua.execute("writes=0; oldOpen=io.open; io.open=function(path,mode) if mode=='wb' and path:find('cover') then writes=writes+1 end; return oldOpen(path,mode) end; MetadataChanged()")
+        self.assertEqual(lua.globals().writes,0)
+        self.assertEqual(lua.globals().count('!UpdateMeasure'),0)
+
+    def test_weather_cache_startup_states_do_not_poll_or_redraw_repeatedly(self):
+        import time
+        valid='53|-6|celsius\n'+str(int(time.time()))+'\n'+json.dumps(test_lua.LuaTests.payload())
+        stale='53|-6|celsius\n'+str(int(time.time())-21601)+'\n'+json.dumps(test_lua.LuaTests.payload())
+        for data,has_value in ((valid,True),(None,False),('broken',False),(stale,False)):
+            with self.subTest(data=bool(data),has_value=has_value):
+                files={'weather-cache.txt':data} if data is not None else {}
+                lua=self.runtime('WeatherSync.lua',initial_files=files)
+                self.assertEqual(lua.globals().SKIN.vars.WeatherCurrentTemp=='0',has_value)
+                lua.execute('clear(); Update(); Update()')
+                self.assertEqual(lua.globals().count('!Redraw'),0)
+                self.assertEqual(lua.globals().count('!CommandMeasure'),0)
+
 
 if __name__ == '__main__':
     unittest.main()

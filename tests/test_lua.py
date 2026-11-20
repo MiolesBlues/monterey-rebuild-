@@ -224,6 +224,52 @@ class LuaTests(unittest.TestCase):
         lua=self.runtime('WeatherSync.lua',initial_files={'weather-cache.txt':cached})
         self.assertIsNone(lua.globals().SKIN.vars.WeatherCurrentTemp)
 
+    def test_weather_cache_valid_missing_stale_and_oversized(self):
+        valid='53|-6|celsius\n'+str(int(time.time()))+'\n'+json.dumps(self.payload())
+        stale='53|-6|celsius\n'+str(int(time.time())-21601)+'\n'+json.dumps(self.payload())
+        for files,expected in (({'weather-cache.txt':valid},'0'),({},None),
+                               ({'weather-cache.txt':stale},None),
+                               ({'weather-cache.txt':'x'*(1049089)},None)):
+            with self.subTest(files=list(files)):
+                lua=self.runtime('WeatherSync.lua',initial_files=files)
+                self.assertEqual(lua.globals().SKIN.vars.WeatherCurrentTemp,expected)
+
+    def test_weather_repairs_corrupt_primary_without_overwriting_backup(self):
+        valid='53|-6|celsius\n'+str(int(time.time()))+'\n'+json.dumps(self.payload())
+        lua=self.runtime('WeatherSync.lua',initial_files={'weather-cache.txt':'broken',
+                                                           'weather-cache.txt.previous':valid})
+        folder=Path(lua.globals().SKIN.vars.CURRENTPATH)
+        self.assertEqual(lua.globals().SKIN.vars.WeatherCurrentTemp,'0')
+        lua.globals().SKIN.GetMeasure(lua.globals().SKIN,'WeatherRaw').text=json.dumps(self.payload())
+        lua.execute('Receive()')
+        self.assertTrue((folder/'weather-cache.txt').read_text().startswith('53|-6|celsius\n'))
+        self.assertEqual((folder/'weather-cache.txt.previous').read_text(),valid)
+        self.assertFalse((folder/'weather-cache.txt.tmp').exists())
+
+    def test_weather_identical_data_skips_disk_write(self):
+        lua=self.runtime('WeatherSync.lua')
+        source=lua.globals().SKIN.GetMeasure(lua.globals().SKIN,'WeatherRaw')
+        source.text=json.dumps(self.payload())
+        lua.execute('Receive()')
+        lua.execute("renames=0; oldRename=os.rename; os.rename=function(...) renames=renames+1; return oldRename(...) end; Receive()")
+        self.assertEqual(lua.globals().renames,0)
+
+    def test_weather_failed_atomic_publish_keeps_recoverable_cache(self):
+        lua=self.runtime('WeatherSync.lua')
+        folder=Path(lua.globals().SKIN.vars.CURRENTPATH)
+        source=lua.globals().SKIN.GetMeasure(lua.globals().SKIN,'WeatherRaw')
+        source.text=json.dumps(self.payload())
+        lua.execute('Receive()')
+        first=(folder/'weather-cache.txt').read_bytes()
+        changed=self.payload(); changed['current']['temperature_2m']=12
+        source.text=json.dumps(changed)
+        lua.execute("oldRename=os.rename; os.rename=function(src,dst) if src:sub(-4)=='.tmp' then return nil end; return oldRename(src,dst) end; Receive()")
+        self.assertEqual((folder/'weather-cache.txt').read_bytes(),first)
+        self.assertEqual(lua.globals().SKIN.vars.WeatherCurrentTemp,'12')
+        lua.execute('os.rename=oldRename; Receive()')
+        self.assertIn(b'"temperature_2m": 12',(folder/'weather-cache.txt').read_bytes())
+        self.assertFalse((folder/'weather-cache.txt.tmp').exists())
+
     def test_json_null_does_not_shift_array(self):
         lua=LuaRuntime(unpack_returned_tuples=True)
         decode=lua.execute((SCRIPTS/'WeatherJSON.lua').read_text())
