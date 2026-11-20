@@ -42,7 +42,7 @@ local function set(name,value) SKIN:Bang('!SetVariable',name,tostring(value)) en
 local function option(meter,key,value) SKIN:Bang('!SetOption',meter,key,tostring(value)) end
 local function updateCell(i,kind,device)
     local customIcon=device and chosenIcon(device.id)
-    local signature=kind..'|'..(device and (device.id..'|'..device.battery..'|'..(customIcon or '')) or '')
+    local signature=kind..'|'..(device and (device.id..'|'..device.name..'|'..device.battery..'|'..(customIcon or '')) or '')
     if display[i]==signature then return end
     display[i]=signature
     local measure,label,icon,tooltip,color,unknown
@@ -71,18 +71,20 @@ local function updateCell(i,kind,device)
     for _,meter in ipairs({'MeterImage','MeterMeter','MeterText','MeterValue'}) do
         option(meter..i,'ToolTipText',tooltip)
     end
+    if device then SKIN:Bang('!CommandMeasure','BluetoothWatcher','CELL|'..i..'|'..device.id) end
     if SKIN:GetVariable('WidgetSize')=='Large' then
         option('MeterText'..i,'Text',label)
         option('MeterValue'..i,'Hidden',unknown and '1' or '0')
         option('MeterMeter'..i,'Hidden',unknown and '1' or '0')
         option('MeterText'..i,'Hidden',kind=='None' and '1' or '0')
     elseif SKIN:GetVariable('WidgetSize')=='Wide' then
+        option('MeterText'..i,'Text',device and label or '%1 %')
+        option('MeterText'..i,'FontSize',device and '(#WidgetHeight#*0.06)' or '(#WidgetHeight#*0.1)')
         option('MeterText'..i,'Hidden',unknown and '1' or '0')
         option('MeterMeter'..i,'Hidden',unknown and '1' or '0')
     else
         option('MeterMeter'..i,'Hidden',unknown and '1' or '0')
     end
-    if device then SKIN:Bang('!CommandMeasure','BluetoothWatcher','CELL|'..i..'|'..device.id) end
     SKIN:Bang('!UpdateMeter','MeterImage'..i)
     SKIN:Bang('!UpdateMeter','MeterMeter'..i)
     if SKIN:GetVariable('WidgetSize')=='Large' or SKIN:GetVariable('WidgetSize')=='Wide' then

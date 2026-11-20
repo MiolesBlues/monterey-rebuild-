@@ -247,6 +247,27 @@ class LuaTests(unittest.TestCase):
         lua.execute('clear(); Update()')
         self.assertEqual(lua.globals().count(),0)
 
+    def test_adaptive_wide_restores_percent_after_bluetooth_disconnect(self):
+        lua=self.runtime('AdaptiveMonitor.lua',WidgetSize='Wide',DeviceMode1='Pinned',PinnedId1='id',Fallback1='CPU')
+        watcher=lua.globals().SKIN.GetMeasure(lua.globals().SKIN,'BluetoothWatcher')
+        row=','.join(v.encode().hex().upper() for v in ('id','Long Bluetooth device name','Headphones'))
+        watcher.text='OK:'+row+',1,50;'; watcher.value=1
+        lua.globals().Update()
+        commands=lua.globals().SKIN.commands
+        text_options=[commands[i] for i in range(1,len(commands)+1)
+                      if commands[i][1]=='!SetOption' and commands[i][2]=='MeterText1' and commands[i][3]=='Text']
+        self.assertEqual(text_options[-1][4],'Long Bluetooth device name')
+        self.assertTrue(any(commands[i][1]=='!SetOption' and commands[i][2]=='MeterText1' and commands[i][3]=='FontSize'
+                            and commands[i][4]=='(#WidgetHeight#*0.06)' for i in range(1,len(commands)+1)))
+
+        lua.execute('clear()')
+        watcher.text='OK:'+row+',0,-1;'; watcher.value=2
+        lua.globals().Update()
+        commands=lua.globals().SKIN.commands
+        self.assertTrue(any(commands[i][1]=='!SetOption' and commands[i][2]=='MeterText1' and commands[i][3]=='Text'
+                            and commands[i][4]=='%1 %' for i in range(1,len(commands)+1)))
+        self.assertEqual(lua.globals().SKIN.vars.Meter1,'CPU')
+
     def test_adaptive_offline_pinned_uses_existing_fallback(self):
         lua=self.runtime('AdaptiveMonitor.lua',DeviceMode1='Pinned',PinnedId1='id',Fallback1='CPU')
         row=','.join(v.encode().hex().upper() for v in ('id','Phone','Phone'))+',0,-1;'
