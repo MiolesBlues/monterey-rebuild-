@@ -1,12 +1,12 @@
 [BluetoothWatcher]
 Measure=Plugin
 Plugin=MontereyBluetooth
-UpdateDivider=10
+UpdateDivider=1
 
 [AdaptiveMonitor]
 Measure=Script
 ScriptFile=#@#Scripts\Widgets\AdaptiveMonitor.lua
-UpdateDivider=10
+UpdateDivider=1
 
 [Variables]
 Phone1Level=0

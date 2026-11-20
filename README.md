@@ -4,6 +4,8 @@ Rainmeter Monterey with the existing widget designs, settings and native plugins
 Phase 2 stabilizes worker lifecycles, asynchronous slider responses, music
 animations and weather caching. See `docs/phase2-report.md` for the audit,
 changed-file manifest, measured results and remaining hardware acceptance tests.
+The event-driven update policy and polling fallbacks are documented in
+`docs/event-driven-updates.md`.
 
 Build the x64 Release plugins with
 `Monterey\@Resources\Native\build.cmd`. CMake, Visual Studio 2022 C++ Build
