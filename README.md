@@ -1,6 +1,8 @@
 # Monterey — Phase 2
 
 Rainmeter Monterey with the existing widget designs, settings and native plugins.
+Phase 3.1 startup audit, native source reconciliation and latency measurements are
+documented in `docs/phase3.1-report.md`.
 Phase 2 stabilizes worker lifecycles, asynchronous slider responses, music
 animations and weather caching. See `docs/phase2-report.md` for the audit,
 changed-file manifest, measured results and remaining hardware acceptance tests.

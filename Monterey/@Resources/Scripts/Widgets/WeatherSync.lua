@@ -51,6 +51,9 @@ function Initialize()
     failures=0; retryAt=nil; nextTry=os.time()+45
     local f=io.open(cache,'r')
     if f then
+        local size=f:seek('end')
+        if not size or size>2000000 then f:close(); return end
+        f:seek('set',0)
         local stored=f:read('*l'); local stamp=tonumber(f:read('*l')); local raw=f:read('*a'); f:close()
         if stored==key and stamp and os.time()-stamp>=0 and os.time()-stamp<=21600 then
             local r=parse(raw); if r and publish(r,os.time()) then data=r end
