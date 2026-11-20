@@ -100,6 +100,28 @@ class EventUpdateTests(unittest.TestCase):
                 lua.execute('MetadataChanged(); clear(); AnimationFrame()')
                 self.assertEqual(lua.globals().count('!ActivateConfig'), int(size == 'Wide'))
 
+    def test_music_preview_unloads_after_hover_and_reopens_on_demand(self):
+        lua=self.runtime('MusicAnimation.lua',WidgetSize='Wide',MusicZoomHover='1')
+        skin=lua.globals().SKIN
+        artwork=Path(skin.vars.CURRENTPATH)/'art.jpg'
+        artwork.write_bytes(b'\xff\xd8'+b'a'*30+b'\xff\xd9')
+        skin.GetMeasure(skin,'MusicProcessRunning').value=1
+        skin.GetMeasure(skin,'TitleMeasure').text='Song'
+        skin.GetMeasure(skin,'CoverMeasure').text=str(artwork)
+        x=skin.GetMeasure(skin,'MusicCursorX'); y=skin.GetMeasure(skin,'MusicCursorY')
+        x.value=y.value=150
+        lua.execute('MetadataChanged(); clear(); AnimationFrame()')
+        self.assertEqual(lua.globals().count('!ActivateConfig'),1)
+        lua.execute('for i=1,20 do AnimationFrame() end; clear()')
+        x.value=y.value=1000
+        lua.execute('for i=1,20 do AnimationFrame() end')
+        self.assertEqual(lua.globals().count('!DeactivateConfig'),1)
+        lua.execute('clear(); for i=1,10 do AnimationFrame() end')
+        self.assertEqual(lua.globals().count('!ActivateConfig'),0)
+        x.value=y.value=150
+        lua.execute('AnimationFrame()')
+        self.assertEqual(lua.globals().count('!ActivateConfig'),1)
+
     def test_music_retries_artwork_after_title_changes_at_same_path(self):
         lua = self.runtime('MusicAnimation.lua')
         artwork = Path(lua.globals().SKIN.vars.CURRENTPATH) / 'art.jpg'
@@ -257,6 +279,68 @@ class EventUpdateTests(unittest.TestCase):
                 lua.execute('clear(); Update(); Update()')
                 self.assertEqual(lua.globals().count('!Redraw'),0)
                 self.assertEqual(lua.globals().count('!CommandMeasure'),0)
+
+    def test_monitor_device_menu_builds_list_only_while_open(self):
+        lua=self.runtime('AdaptiveSettings.lua')
+        skin=lua.globals().SKIN
+        watcher=skin.GetMeasure(skin,'BluetoothWatcher')
+        def snapshot(name,generation):
+            row=','.join(value.encode().hex().upper() for value in ('device-id',name,'Phone'))
+            watcher.text='OK:'+row+',1,75;'
+            watcher.value=generation
+        snapshot('First',1)
+        lua.execute('Update(); clear(); Update()')
+        self.assertEqual(lua.globals().count(),0)
+        lua.execute('''
+            local original=SKIN.Bang
+            function SKIN:Bang(...)
+                original(self,...)
+                local args={...}
+                if args[1]=='!UpdateMeasure' and args[2]=='BluetoothWatcher' then Update() end
+            end
+        ''')
+        lua.execute('OpenDevices()')
+        self.assertGreater(lua.globals().count('!CommandMeasure'),0)
+        self.assertEqual(lua.globals().count('!UpdateMeasure'),1)
+        self.assertEqual(lua.globals().count('!Redraw'),1)
+        self.assertEqual(lua.globals().SKIN.vars.Meter1,None)
+        lua.execute('Back(); clear()')
+        snapshot('Second',2)
+        lua.execute('Update()')
+        self.assertEqual(lua.globals().count(),0)
+        lua.execute('OpenDevices()')
+        commands=[skin.commands[i] for i in range(1,len(skin.commands)+1)]
+        self.assertTrue(any(c[1]=='!CommandMeasure' and c[2]=='BluetoothWatcher' and c[3].startswith('NAME|') for c in commands))
+        lua.execute('Finalize()')
+        lua.execute('local _,list=debug.getupvalue(Finalize,2); assert(next(list)==nil)')
+        settings=test_lua.read_script(test_lua.ROOT/'Monterey/Widgets/Monitor/Settings.ini')
+        self.assertIn('OnRefreshAction=[!UpdateMeasure AdaptiveSettings]',settings)
+        self.assertIn('OnChangeAction=[!UpdateMeasure AdaptiveSettings]',settings)
+        self.assertIn('UpdateDivider=-1',settings)
+
+    def test_auxiliary_configs_have_single_lazy_activation_route(self):
+        root=test_lua.ROOT/'Monterey'
+        for name in ('Sidebar.inc','Widget.inc'):
+            source=test_lua.read_script(root/'@Resources/Scripts/Contexts'/name)
+            self.assertNotIn('!ToggleConfig "Monterey" "Settings.ini"',source)
+            self.assertIn('!ActivateConfig "Monterey" "Settings.ini"',source)
+        for name in ('Preview.ini','Fullscreen.ini'):
+            source=test_lua.read_script(root/'MusicPreview'/name)
+            self.assertIn('Update=-1',source)
+        self.assertIn('#SettingsTab#.inc',test_lua.read_script(root/'Settings.ini'))
+
+    def test_pinned_cell_samples_device_without_building_device_list(self):
+        lua=self.runtime('AdaptiveSettings.lua',DeviceMode1='Pinned',PinnedId1='device-id')
+        skin=lua.globals().SKIN
+        row=','.join(value.encode().hex().upper() for value in ('device-id','Phone','Phone'))
+        watcher=skin.GetMeasure(skin,'BluetoothWatcher')
+        watcher.text='OK:'+row+',1,75;'
+        watcher.value=1
+        lua.execute('Update(); clear(); OpenCell(1)')
+        commands=[skin.commands[i] for i in range(1,len(skin.commands)+1)]
+        self.assertTrue(any(c[1]=='!CommandMeasure' and c[2]=='BluetoothWatcher' and c[3]=='PICK|3|device-id' for c in commands))
+        self.assertFalse(any(c[1]=='!CommandMeasure' and c[2]=='BluetoothWatcher' and c[3].startswith('NAME|') for c in commands))
+        self.assertEqual(lua.globals().count('!UpdateMeasure'),1)
 
 
 if __name__ == '__main__':

@@ -6,6 +6,8 @@ local devices,ordered,selection={}, {}, {}
 local page,cell,index,origin='main',1,1,'main'
 local dirty=true
 local lastGeneration=-1
+local watcherLive=false
+local refreshing=false
 local dropdownCell,fallbackCell,iconRow=nil,nil,nil
 local function canonicalId(id)
     if #id==38 and id:match('^%{[%x%-]+%}$') then return id:lower() end
@@ -35,6 +37,21 @@ local function parse(raw)
     table.sort(ordered,function(a,b) return a.name:lower()<b.name:lower() end)
     if index>#ordered then index=math.max(1,4*math.floor((#ordered-1)/4)+1) end
     dirty=true
+end
+local function connectedPinned(id)
+    local measure=SKIN:GetMeasure('BluetoothWatcher')
+    local raw=measure and measure:GetStringValue()
+    if not raw or raw:sub(1,3)~='OK:' then return false end
+    for row in raw:sub(4):gmatch('([^;]+)') do
+        local encoded, name, category, connected=row:match('^([0-9A-F]*),([0-9A-F]*),([0-9A-F]*),([01]),')
+        if encoded and connected=='1' and canonicalId(decode(encoded))==id then return true end
+    end
+    return false
+end
+local function watch(active)
+    if watcherLive==active then return end
+    watcherLive=active
+    SKIN:Bang('!SetOption','BluetoothWatcher','UpdateDivider',active and '1' or '-1')
 end
 local function cfg(i)
     local old=SKIN:GetVariable('Meter'..i,'None')
@@ -206,6 +223,7 @@ local function controls()
     menu()
 end
 local function render()
+    watch(page=='devices' or (page=='cell' and cfg(cell)=='Pinned'))
     dropdownCell,fallbackCell,iconRow=nil,nil,nil
     deviceTitleLayout(page=='devices')
     if page=='main' then
@@ -226,7 +244,6 @@ local function render()
         SKIN:Bang('!SetOption','AdaptiveNav','Hidden','0')
         SKIN:Bang('!SetOption','AdaptiveRefresh','Hidden','1')
         local mode,id,fb=cfg(cell)
-        local d=devices[id]
         SKIN:Bang('!SetOption','Option1Title','FontSize','(#WidgetWidth# * 0.035)')
         SKIN:Bang('!SetOption','Option1Title','FontWeight','600')
         rowPosition(1,0.30)
@@ -240,7 +257,7 @@ local function render()
         tooltip({'CellModeSurface','CellModeControl','CellModeArrow'},modeTip)
         if mode=='Pinned' then
             row(3,'Pinned device','','OpenDevices()',pinnedTip)
-            if d then SKIN:Bang('!CommandMeasure','BluetoothWatcher','PICK|3|'..id) end
+            if connectedPinned(id) then SKIN:Bang('!CommandMeasure','BluetoothWatcher','PICK|3|'..id) end
         else row(3,'','') end
         tooltip({'Option3Surface','Option3Prompt','AdaptiveHint'},pinnedTip)
         row(4,'Fallback function','','',fallbackTip)
@@ -343,17 +360,39 @@ function SelectFallback(value)
 end
 function Initialize() dirty=true end
 function Update()
-    local measure=SKIN:GetMeasure('BluetoothWatcher')
-    if measure then
-        local generation=measure:GetValue()
-        if generation~=lastGeneration then parse(measure:GetStringValue()); lastGeneration=generation end
+    if refreshing then return 0 end
+    if page=='devices' then
+        local measure=SKIN:GetMeasure('BluetoothWatcher')
+        if measure then
+            local generation=measure:GetValue()
+            if generation~=lastGeneration then parse(measure:GetStringValue()); lastGeneration=generation end
+        end
+    elseif page=='cell' and cfg(cell)=='Pinned' then
+        local measure=SKIN:GetMeasure('BluetoothWatcher')
+        if measure then
+            local generation=measure:GetValue()
+            if generation~=lastGeneration then lastGeneration=generation; dirty=true end
+        end
     end
     if dirty then render() end
     return 0
 end
-function OpenCell(i) if i>=1 and i<=6 then cell=i; page='cell'; dirty=true; render() end end
-function OpenDevices() origin=page; page='devices'; index=1; dirty=true; render() end
-function Back() if page=='devices' then page=origin else page='main' end; dirty=true; render() end
+function OpenCell(i)
+    if i<1 or i>6 then return end
+    cell=i; page='cell'; dirty=true
+    if cfg(cell)=='Pinned' then
+        watch(true)
+        refreshing=true; SKIN:Bang('!UpdateMeasure','BluetoothWatcher'); refreshing=false
+    end
+    render()
+end
+function OpenDevices() origin=page; page='devices'; index=1; watch(true); RefreshDevices() end
+function Back()
+    if page=='devices' then
+        page=origin; devices,ordered,selection={}, {}, {}
+    else page='main' end
+    dirty=true; render()
+end
 function Previous() index=math.max(1,index-4); dirty=true; render() end
 function Next() if index+4<=#ordered then index=index+4; dirty=true; render() end end
 function CycleMode()
@@ -375,10 +414,11 @@ function Pick(i)
         SKIN:Bang('!UpdateMeter','AdaptiveNav'); SKIN:Bang('!Redraw'); return
     end
     write('PinnedId'..cell,id); write('DeviceMode'..cell,'Pinned')
-    page='cell'; dirty=true; render()
+    page='cell'; devices,ordered,selection={}, {}, {}; dirty=true; render()
 end
 function RefreshDevices()
-    SKIN:Bang('!UpdateMeasure','BluetoothWatcher')
+    if page~='devices' then return end
+    refreshing=true; SKIN:Bang('!UpdateMeasure','BluetoothWatcher'); refreshing=false
     local measure=SKIN:GetMeasure('BluetoothWatcher')
     if measure then
         parse(measure:GetStringValue())
@@ -386,3 +426,4 @@ function RefreshDevices()
     end
     render()
 end
+function Finalize() devices,ordered,selection={}, {}, {} end
