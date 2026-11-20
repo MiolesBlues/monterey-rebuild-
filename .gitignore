@@ -1,0 +1,7 @@
+Monterey/@Resources/Native/build*/
+__pycache__/
+*.tmp
+Monterey/@Resources/Images/Music/cover-cache-*
+Monterey/@Resources/Images/Music/last-cover.*
+Monterey/@Resources/Images/Music/last-track.txt
+Monterey/Widgets/Weather/weather-cache.txt*

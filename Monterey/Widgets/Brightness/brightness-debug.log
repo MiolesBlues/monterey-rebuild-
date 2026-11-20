@@ -1,0 +1,385 @@
+Monterey brightness diagnostic v1; op 1=write, 2=read
+11:41:05 tick=0 INIT id=0 target=0.00 displayed=0.00 drag=false timer=false fps=144
+11:41:05 tick=1 PLUGIN id=0 target=0.00 displayed=0.00 drag=false timer=false 0 -1
+11:41:06 tick=1 SYNC id=0 target=0.00 displayed=0.00 drag=false timer=false incoming=-1 responseId=0
+11:41:06 tick=8 PLUGIN id=0 target=0.00 displayed=0.00 drag=false timer=false 0 100 gen=0 desired=-1 confirmed=100 raw=100 op=2 rawGen=0 rawCount=1 requested=-1 dirty=0
+11:41:06 tick=8 SYNC id=0 target=0.00 displayed=0.00 drag=false timer=false incoming=100 responseId=0
+11:41:06 tick=8 FRAME id=0 target=100.00 displayed=7.48 drag=false timer=true 
+11:41:06 tick=8 FRAME id=0 target=100.00 displayed=14.41 drag=false timer=true 
+11:41:06 tick=9 FRAME id=0 target=100.00 displayed=20.81 drag=false timer=true 
+11:41:06 tick=9 FRAME id=0 target=100.00 displayed=26.74 drag=false timer=true 
+11:41:06 tick=10 FRAME id=0 target=100.00 displayed=32.22 drag=false timer=true 
+11:41:06 tick=10 FRAME id=0 target=100.00 displayed=37.29 drag=false timer=true 
+11:41:06 tick=11 FRAME id=0 target=100.00 displayed=46.32 drag=false timer=true 
+11:41:06 tick=12 FRAME id=0 target=100.00 displayed=54.06 drag=false timer=true 
+11:41:06 tick=13 FRAME id=0 target=100.00 displayed=60.68 drag=false timer=true 
+11:41:06 tick=14 FRAME id=0 target=100.00 displayed=66.34 drag=false timer=true 
+11:41:06 tick=16 FRAME id=0 target=100.00 displayed=73.35 drag=false timer=true 
+11:41:06 tick=17 FRAME id=0 target=100.00 displayed=78.89 drag=false timer=true 
+11:41:06 tick=19 FRAME id=0 target=100.00 displayed=84.54 drag=false timer=true 
+11:41:06 tick=22 FRAME id=0 target=100.00 displayed=90.30 drag=false timer=true 
+11:41:06 tick=27 FRAME id=0 target=100.00 displayed=95.54 drag=false timer=true 
+11:41:07 tick=53 ANIMATION_END id=0 target=100.00 displayed=100.00 drag=false timer=false 
+11:41:08 tick=71 PLUGIN id=0 target=100.00 displayed=100.00 drag=false timer=false 0 100 gen=0 desired=-1 confirmed=100 raw=100 op=2 rawGen=0 rawCount=2 requested=-1 dirty=0
+11:41:10 tick=134 PLUGIN id=0 target=100.00 displayed=100.00 drag=false timer=false 0 100 gen=0 desired=-1 confirmed=100 raw=100 op=2 rawGen=0 rawCount=3 requested=-1 dirty=0
+11:41:12 tick=197 PLUGIN id=0 target=100.00 displayed=100.00 drag=false timer=false 0 100 gen=0 desired=-1 confirmed=100 raw=100 op=2 rawGen=0 rawCount=4 requested=-1 dirty=0
+11:41:14 tick=260 PLUGIN id=0 target=100.00 displayed=100.00 drag=false timer=false 0 100 gen=0 desired=-1 confirmed=100 raw=100 op=2 rawGen=0 rawCount=5 requested=-1 dirty=0
+11:41:16 tick=323 PLUGIN id=0 target=100.00 displayed=100.00 drag=false timer=false 0 100 gen=0 desired=-1 confirmed=100 raw=100 op=2 rawGen=0 rawCount=6 requested=-1 dirty=0
+11:41:18 tick=386 PLUGIN id=0 target=100.00 displayed=100.00 drag=false timer=false 0 100 gen=0 desired=-1 confirmed=100 raw=100 op=2 rawGen=0 rawCount=7 requested=-1 dirty=0
+11:41:20 tick=456 PLUGIN id=0 target=100.00 displayed=100.00 drag=false timer=false 0 100 gen=0 desired=-1 confirmed=100 raw=100 op=2 rawGen=0 rawCount=8 requested=-1 dirty=0
+11:41:22 tick=519 PLUGIN id=0 target=100.00 displayed=100.00 drag=false timer=false 0 100 gen=0 desired=-1 confirmed=100 raw=100 op=2 rawGen=0 rawCount=9 requested=-1 dirty=0
+11:41:24 tick=582 PLUGIN id=0 target=100.00 displayed=100.00 drag=false timer=false 0 100 gen=0 desired=-1 confirmed=100 raw=100 op=2 rawGen=0 rawCount=10 requested=-1 dirty=0
+11:41:26 tick=645 PLUGIN id=0 target=100.00 displayed=100.00 drag=false timer=false 0 100 gen=0 desired=-1 confirmed=100 raw=100 op=2 rawGen=0 rawCount=11 requested=-1 dirty=0
+11:41:28 tick=708 PLUGIN id=0 target=100.00 displayed=100.00 drag=false timer=false 0 100 gen=0 desired=-1 confirmed=100 raw=100 op=2 rawGen=0 rawCount=12 requested=-1 dirty=0
+11:41:30 tick=771 PLUGIN id=0 target=100.00 displayed=100.00 drag=false timer=false 0 100 gen=0 desired=-1 confirmed=100 raw=100 op=2 rawGen=0 rawCount=13 requested=-1 dirty=0
+11:41:32 tick=834 PLUGIN id=0 target=100.00 displayed=100.00 drag=false timer=false 0 100 gen=0 desired=-1 confirmed=100 raw=100 op=2 rawGen=0 rawCount=14 requested=-1 dirty=0
+11:41:34 tick=904 PLUGIN id=0 target=100.00 displayed=100.00 drag=false timer=false 0 100 gen=0 desired=-1 confirmed=100 raw=100 op=2 rawGen=0 rawCount=15 requested=-1 dirty=0
+11:41:36 tick=967 PLUGIN id=0 target=100.00 displayed=100.00 drag=false timer=false 0 100 gen=0 desired=-1 confirmed=100 raw=100 op=2 rawGen=0 rawCount=16 requested=-1 dirty=0
+11:41:38 tick=1030 PLUGIN id=0 target=100.00 displayed=100.00 drag=false timer=false 0 100 gen=0 desired=-1 confirmed=100 raw=100 op=2 rawGen=0 rawCount=17 requested=-1 dirty=0
+11:41:40 tick=1093 PLUGIN id=0 target=100.00 displayed=100.00 drag=false timer=false 0 100 gen=0 desired=-1 confirmed=100 raw=100 op=2 rawGen=0 rawCount=18 requested=-1 dirty=0
+11:41:42 tick=1156 PLUGIN id=0 target=100.00 displayed=100.00 drag=false timer=false 0 100 gen=0 desired=-1 confirmed=100 raw=100 op=2 rawGen=0 rawCount=19 requested=-1 dirty=0
+11:41:44 tick=1219 PLUGIN id=0 target=100.00 displayed=100.00 drag=false timer=false 0 100 gen=0 desired=-1 confirmed=100 raw=100 op=2 rawGen=0 rawCount=20 requested=-1 dirty=0
+11:41:46 tick=1279 INPUT id=1 target=73.00 displayed=100.00 drag=true timer=false value=73
+11:41:46 tick=1279 FRAME id=1 target=73.00 displayed=95.11 drag=true timer=true 
+11:41:46 tick=1279 FRAME id=1 target=73.00 displayed=87.82 drag=true timer=true 
+11:41:46 tick=1280 INPUT id=2 target=63.00 displayed=87.82 drag=true timer=true value=63
+11:41:46 tick=1280 FRAME id=2 target=63.00 displayed=79.64 drag=true timer=true 
+11:41:46 tick=1281 INPUT id=3 target=43.00 displayed=79.64 drag=true timer=true value=43
+11:41:46 tick=1281 FRAME id=3 target=43.00 displayed=72.99 drag=true timer=true 
+11:41:46 tick=1281 FRAME id=3 target=43.00 displayed=67.56 drag=true timer=true 
+11:41:46 tick=1282 PLUGIN id=3 target=43.00 displayed=67.56 drag=true timer=true 3 43 gen=3 desired=43 confirmed=100 raw=-1 op=1 rawGen=1 rawCount=21 requested=73 dirty=1
+11:41:46 tick=1282 INPUT id=4 target=13.00 displayed=67.56 drag=true timer=true value=13
+11:41:46 tick=1282 FRAME id=4 target=13.00 displayed=57.67 drag=true timer=true 
+11:41:46 tick=1282 FRAME id=4 target=13.00 displayed=49.57 drag=true timer=true 
+11:41:46 tick=1283 INPUT id=5 target=5.00 displayed=49.57 drag=true timer=true value=5
+11:41:46 tick=1283 FRAME id=5 target=5.00 displayed=43.15 drag=false timer=true 
+11:41:46 tick=1284 FRAME id=5 target=5.00 displayed=37.65 drag=false timer=true 
+11:41:46 tick=1286 FRAME id=5 target=5.00 displayed=30.86 drag=false timer=true 
+11:41:46 tick=1287 FRAME id=5 target=5.00 displayed=25.48 drag=false timer=true 
+11:41:46 tick=1289 PLUGIN id=5 target=5.00 displayed=22.53 drag=false timer=true 5 5 gen=5 desired=5 confirmed=100 raw=-1 op=1 rawGen=4 rawCount=22 requested=13 dirty=0
+11:41:46 tick=1289 FRAME id=5 target=5.00 displayed=20.00 drag=false timer=true 
+11:41:46 tick=1292 FRAME id=5 target=5.00 displayed=14.41 drag=false timer=true 
+11:41:46 tick=1297 FRAME id=5 target=5.00 displayed=9.32 drag=false timer=true 
+11:41:46 tick=1303 PLUGIN id=5 target=5.00 displayed=6.99 drag=false timer=true 5 100 gen=5 desired=5 confirmed=100 raw=-1 op=1 rawGen=5 rawCount=23 requested=5 dirty=0
+11:41:46 tick=1303 SYNC id=5 target=5.00 displayed=6.99 drag=false timer=true incoming=100 responseId=5
+11:41:46 tick=1303 FRAME id=5 target=100.00 displayed=13.95 drag=false timer=true 
+11:41:46 tick=1303 FRAME id=5 target=100.00 displayed=20.39 drag=false timer=true 
+11:41:46 tick=1304 FRAME id=5 target=100.00 displayed=26.34 drag=false timer=true 
+11:41:46 tick=1304 FRAME id=5 target=100.00 displayed=31.85 drag=false timer=true 
+11:41:46 tick=1305 FRAME id=5 target=100.00 displayed=36.95 drag=false timer=true 
+11:41:47 tick=1306 FRAME id=5 target=100.00 displayed=46.04 drag=false timer=true 
+11:41:47 tick=1307 FRAME id=5 target=100.00 displayed=53.81 drag=false timer=true 
+11:41:47 tick=1308 FRAME id=5 target=100.00 displayed=60.46 drag=false timer=true 
+11:41:47 tick=1308 FRAME id=5 target=100.00 displayed=66.16 drag=false timer=true 
+11:41:47 tick=1310 FRAME id=5 target=100.00 displayed=73.20 drag=false timer=true 
+11:41:47 tick=1311 FRAME id=5 target=100.00 displayed=78.78 drag=false timer=true 
+11:41:47 tick=1313 FRAME id=5 target=100.00 displayed=84.45 drag=false timer=true 
+11:41:47 tick=1316 FRAME id=5 target=100.00 displayed=89.46 drag=false timer=true 
+11:41:47 tick=1320 FRAME id=5 target=100.00 displayed=94.77 drag=false timer=true 
+11:41:47 tick=1323 ANIMATION_END id=5 target=100.00 displayed=96.72 drag=false timer=false 
+11:41:48 tick=1340 FRAME id=5 target=100.00 displayed=99.78 drag=false timer=true 
+11:41:48 tick=1366 PLUGIN id=5 target=100.00 displayed=100.00 drag=false timer=true 5 5 gen=5 desired=5 confirmed=5 raw=5 op=2 rawGen=5 rawCount=24 requested=5 dirty=0
+11:41:48 tick=1366 SYNC id=5 target=100.00 displayed=100.00 drag=false timer=true incoming=5 responseId=5
+11:41:48 tick=1366 FRAME id=5 target=5.00 displayed=92.89 drag=false timer=true 
+11:41:48 tick=1366 FRAME id=5 target=5.00 displayed=86.31 drag=false timer=true 
+11:41:48 tick=1367 FRAME id=5 target=5.00 displayed=80.23 drag=false timer=true 
+11:41:48 tick=1367 FRAME id=5 target=5.00 displayed=74.60 drag=false timer=true 
+11:41:48 tick=1368 FRAME id=5 target=5.00 displayed=69.39 drag=false timer=true 
+11:41:48 tick=1369 FRAME id=5 target=5.00 displayed=60.12 drag=false timer=true 
+11:41:48 tick=1369 ANIMATION_END id=5 target=5.00 displayed=60.12 drag=false timer=false 
+11:41:49 tick=1370 FRAME id=5 target=5.00 displayed=52.18 drag=false timer=true 
+11:41:49 tick=1371 FRAME id=5 target=5.00 displayed=45.38 drag=false timer=true 
+11:41:49 tick=1372 FRAME id=5 target=5.00 displayed=39.56 drag=false timer=true 
+11:41:49 tick=1373 FRAME id=5 target=5.00 displayed=32.37 drag=false timer=true 
+11:41:49 tick=1375 FRAME id=5 target=5.00 displayed=26.67 drag=false timer=true 
+11:41:49 tick=1377 FRAME id=5 target=5.00 displayed=20.88 drag=false timer=true 
+11:41:49 tick=1379 FRAME id=5 target=5.00 displayed=15.76 drag=false timer=true 
+11:41:49 tick=1384 FRAME id=5 target=5.00 displayed=10.34 drag=false timer=true 
+11:41:49 tick=1389 INPUT id=6 target=73.00 displayed=6.63 drag=true timer=true value=73
+11:41:49 tick=1389 FRAME id=6 target=73.00 displayed=18.66 drag=true timer=true 
+11:41:49 tick=1389 FRAME id=6 target=73.00 displayed=28.51 drag=true timer=true 
+11:41:49 tick=1390 INPUT id=7 target=97.00 displayed=28.51 drag=true timer=true value=97
+11:41:49 tick=1390 FRAME id=7 target=97.00 displayed=40.92 drag=true timer=true 
+11:41:49 tick=1391 FRAME id=7 target=97.00 displayed=49.00 drag=false timer=true 
+11:41:49 tick=1392 FRAME id=7 target=97.00 displayed=55.92 drag=false timer=true 
+11:41:49 tick=1393 FRAME id=7 target=97.00 displayed=61.84 drag=false timer=true 
+11:41:49 tick=1394 PLUGIN id=7 target=97.00 displayed=64.47 drag=false timer=true 7 97 gen=7 desired=97 confirmed=5 raw=-1 op=1 rawGen=6 rawCount=25 requested=73 dirty=0
+11:41:49 tick=1394 FRAME id=7 target=97.00 displayed=66.90 drag=false timer=true 
+11:41:49 tick=1395 FRAME id=7 target=97.00 displayed=73.17 drag=false timer=true 
+11:41:49 tick=1397 FRAME id=7 target=97.00 displayed=79.54 drag=false timer=true 
+11:41:49 tick=1400 FRAME id=7 target=97.00 displayed=85.16 drag=false timer=true 
+11:41:50 tick=1404 FRAME id=7 target=97.00 displayed=90.65 drag=false timer=true 
+11:41:50 tick=1408 PLUGIN id=7 target=97.00 displayed=93.59 drag=false timer=true 7 5 gen=7 desired=97 confirmed=5 raw=-1 op=1 rawGen=7 rawCount=26 requested=97 dirty=0
+11:41:50 tick=1408 SYNC id=7 target=97.00 displayed=93.59 drag=false timer=true incoming=5 responseId=7
+11:41:50 tick=1408 FRAME id=7 target=5.00 displayed=86.96 drag=false timer=true 
+11:41:50 tick=1409 FRAME id=7 target=5.00 displayed=80.83 drag=false timer=true 
+11:41:50 tick=1409 FRAME id=7 target=5.00 displayed=75.15 drag=false timer=true 
+11:41:50 tick=1410 FRAME id=7 target=5.00 displayed=69.90 drag=false timer=true 
+11:41:50 tick=1411 FRAME id=7 target=5.00 displayed=60.55 drag=false timer=true 
+11:41:50 tick=1412 FRAME id=7 target=5.00 displayed=52.55 drag=false timer=true 
+11:41:50 tick=1413 FRAME id=7 target=5.00 displayed=45.70 drag=false timer=true 
+11:41:50 tick=1414 FRAME id=7 target=5.00 displayed=39.84 drag=false timer=true 
+11:41:50 tick=1415 FRAME id=7 target=5.00 displayed=34.82 drag=false timer=true 
+11:41:50 tick=1415 ANIMATION_END id=7 target=5.00 displayed=34.82 drag=false timer=false 
+11:41:50 tick=1417 FRAME id=7 target=5.00 displayed=28.61 drag=false timer=true 
+11:41:50 tick=1419 FRAME id=7 target=5.00 displayed=22.30 drag=false timer=true 
+11:41:50 tick=1421 FRAME id=7 target=5.00 displayed=16.73 drag=false timer=true 
+11:41:50 tick=1425 FRAME id=7 target=5.00 displayed=11.29 drag=false timer=true 
+11:41:50 tick=1430 FRAME id=7 target=5.00 displayed=6.09 drag=true timer=true 
+11:41:51 tick=1434 INPUT id=8 target=100.00 displayed=5.27 drag=true timer=true value=100
+11:41:51 tick=1434 FRAME id=8 target=100.00 displayed=22.44 drag=true timer=true 
+11:41:51 tick=1435 FRAME id=8 target=100.00 displayed=36.50 drag=true timer=true 
+11:41:51 tick=1435 FRAME id=8 target=100.00 displayed=48.01 drag=true timer=true 
+11:41:51 tick=1436 PLUGIN id=8 target=100.00 displayed=51.90 drag=false timer=true 8 100 gen=8 desired=100 confirmed=5 raw=-1 op=1 rawGen=7 rawCount=26 requested=97 dirty=0
+11:41:51 tick=1436 FRAME id=8 target=100.00 displayed=55.50 drag=false timer=true 
+11:41:51 tick=1437 FRAME id=8 target=100.00 displayed=61.91 drag=false timer=true 
+11:41:51 tick=1438 FRAME id=8 target=100.00 displayed=67.40 drag=false timer=true 
+11:41:51 tick=1439 FRAME id=8 target=100.00 displayed=74.18 drag=false timer=true 
+11:41:51 tick=1441 FRAME id=8 target=100.00 displayed=79.56 drag=false timer=true 
+11:41:51 tick=1443 FRAME id=8 target=100.00 displayed=85.02 drag=false timer=true 
+11:41:51 tick=1446 FRAME id=8 target=100.00 displayed=90.61 drag=false timer=true 
+11:41:51 tick=1450 PLUGIN id=8 target=100.00 displayed=94.55 drag=false timer=true 8 5 gen=8 desired=100 confirmed=5 raw=-1 op=1 rawGen=8 rawCount=27 requested=100 dirty=0
+11:41:51 tick=1450 SYNC id=8 target=100.00 displayed=94.55 drag=false timer=true incoming=5 responseId=8
+11:41:51 tick=1450 FRAME id=8 target=5.00 displayed=87.85 drag=false timer=true 
+11:41:51 tick=1450 FRAME id=8 target=5.00 displayed=81.65 drag=false timer=true 
+11:41:51 tick=1451 FRAME id=8 target=5.00 displayed=75.91 drag=false timer=true 
+11:41:51 tick=1451 FRAME id=8 target=5.00 displayed=70.61 drag=false timer=true 
+11:41:51 tick=1452 FRAME id=8 target=5.00 displayed=61.16 drag=false timer=true 
+11:41:51 tick=1453 FRAME id=8 target=5.00 displayed=53.07 drag=false timer=true 
+11:41:51 tick=1454 FRAME id=8 target=5.00 displayed=46.14 drag=false timer=true 
+11:41:51 tick=1455 FRAME id=8 target=5.00 displayed=40.21 drag=false timer=true 
+11:41:51 tick=1456 FRAME id=8 target=5.00 displayed=35.14 drag=false timer=true 
+11:41:51 tick=1458 FRAME id=8 target=5.00 displayed=28.87 drag=false timer=true 
+11:41:51 tick=1460 FRAME id=8 target=5.00 displayed=22.49 drag=false timer=true 
+11:41:51 tick=1461 ANIMATION_END id=8 target=5.00 displayed=19.97 drag=false timer=false 
+11:41:51 tick=1462 FRAME id=8 target=5.00 displayed=16.85 drag=false timer=true 
+11:41:52 tick=1466 FRAME id=8 target=5.00 displayed=11.36 drag=false timer=true 
+11:41:52 tick=1474 INPUT id=9 target=7.00 displayed=6.98 drag=false timer=true value=7
+11:41:52 tick=1474 INPUT id=10 target=9.00 displayed=7.00 drag=false timer=true value=9
+11:41:52 tick=1475 INPUT id=11 target=11.00 displayed=7.15 drag=false timer=true value=11
+11:41:52 tick=1475 INPUT id=12 target=13.00 displayed=7.15 drag=false timer=true value=13
+11:41:52 tick=1475 INPUT id=13 target=15.00 displayed=7.59 drag=false timer=true value=15
+11:41:52 tick=1476 INPUT id=14 target=17.00 displayed=8.14 drag=false timer=true value=17
+11:41:52 tick=1478 PLUGIN id=14 target=17.00 displayed=9.42 drag=false timer=true 14 17 gen=14 desired=17 confirmed=5 raw=-1 op=1 rawGen=9 rawCount=28 requested=7 dirty=1
+11:41:52 tick=1478 INPUT id=15 target=19.00 displayed=10.51 drag=false timer=true value=19
+11:41:52 tick=1479 INPUT id=16 target=21.00 displayed=11.15 drag=false timer=true value=21
+11:41:52 tick=1479 INPUT id=17 target=23.00 displayed=11.15 drag=false timer=true value=23
+11:41:52 tick=1479 FRAME id=17 target=23.00 displayed=12.03 drag=false timer=true 
+11:41:52 tick=1479 INPUT id=18 target=25.00 displayed=12.03 drag=false timer=true value=25
+11:41:52 tick=1479 INPUT id=19 target=27.00 displayed=12.03 drag=false timer=true value=27
+11:41:52 tick=1480 INPUT id=20 target=29.00 displayed=13.15 drag=false timer=true value=29
+11:41:52 tick=1480 INPUT id=21 target=31.00 displayed=14.34 drag=false timer=true value=31
+11:41:52 tick=1481 FRAME id=21 target=31.00 displayed=17.81 drag=false timer=true 
+11:41:52 tick=1485 PLUGIN id=21 target=31.00 displayed=22.73 drag=false timer=true 21 31 gen=21 desired=31 confirmed=5 raw=-1 op=1 rawGen=14 rawCount=29 requested=17 dirty=0
+11:41:52 tick=1485 FRAME id=21 target=31.00 displayed=23.35 drag=false timer=true 
+11:41:52 tick=1487 INPUT id=22 target=33.00 displayed=24.94 drag=false timer=true value=33
+11:41:52 tick=1487 INPUT id=23 target=35.00 displayed=25.54 drag=false timer=true value=35
+11:41:52 tick=1487 INPUT id=24 target=37.00 displayed=25.54 drag=false timer=true value=37
+11:41:52 tick=1488 INPUT id=25 target=39.00 displayed=26.40 drag=false timer=true value=39
+11:41:52 tick=1488 INPUT id=26 target=41.00 displayed=26.40 drag=false timer=true value=41
+11:41:52 tick=1488 INPUT id=27 target=43.00 displayed=27.49 drag=false timer=true value=43
+11:41:52 tick=1488 FRAME id=27 target=43.00 displayed=28.65 drag=false timer=true 
+11:41:52 tick=1489 INPUT id=28 target=45.00 displayed=28.65 drag=false timer=true value=45
+11:41:52 tick=1489 INPUT id=29 target=47.00 displayed=29.88 drag=false timer=true value=47
+11:41:52 tick=1491 INPUT id=30 target=49.00 displayed=33.44 drag=false timer=true value=49
+11:41:52 tick=1491 INPUT id=31 target=51.00 displayed=33.44 drag=false timer=true value=51
+11:41:52 tick=1491 FRAME id=31 target=51.00 displayed=34.75 drag=false timer=true 
+11:41:52 tick=1491 INPUT id=32 target=53.00 displayed=34.75 drag=false timer=true value=53
+11:41:52 tick=1491 INPUT id=33 target=55.00 displayed=34.75 drag=false timer=true value=55
+11:41:52 tick=1492 PLUGIN id=33 target=55.00 displayed=36.27 drag=false timer=true 29 47 gen=29 desired=47 confirmed=5 raw=-1 op=1 rawGen=28 rawCount=31 requested=45 dirty=1
+11:41:52 tick=1492 INPUT id=34 target=57.00 displayed=36.27 drag=false timer=true value=57
+11:41:52 tick=1492 INPUT id=35 target=59.00 displayed=37.82 drag=false timer=true value=59
+11:41:52 tick=1493 FRAME id=35 target=59.00 displayed=40.87 drag=false timer=true 
+11:41:52 tick=1493 INPUT id=36 target=61.00 displayed=40.87 drag=false timer=true value=61
+11:41:52 tick=1495 FRAME id=36 target=61.00 displayed=46.25 drag=false timer=true 
+11:41:53 tick=1498 FRAME id=36 target=61.00 displayed=51.75 drag=false timer=true 
+11:41:53 tick=1498 INPUT id=37 target=63.00 displayed=51.75 drag=false timer=true value=63
+11:41:53 tick=1499 PLUGIN id=37 target=63.00 displayed=52.59 drag=false timer=true 36 61 gen=36 desired=61 confirmed=5 raw=-1 op=1 rawGen=33 rawCount=32 requested=55 dirty=0
+11:41:53 tick=1499 INPUT id=38 target=65.00 displayed=52.59 drag=false timer=true value=65
+11:41:53 tick=1499 INPUT id=39 target=67.00 displayed=53.52 drag=false timer=true value=67
+11:41:53 tick=1499 INPUT id=40 target=69.00 displayed=53.52 drag=false timer=true value=69
+11:41:53 tick=1500 INPUT id=41 target=71.00 displayed=54.68 drag=false timer=true value=71
+11:41:53 tick=1500 INPUT id=42 target=73.00 displayed=55.90 drag=false timer=true value=73
+11:41:53 tick=1500 FRAME id=42 target=73.00 displayed=57.18 drag=false timer=true 
+11:41:53 tick=1501 INPUT id=43 target=75.00 displayed=57.18 drag=false timer=true value=75
+11:41:53 tick=1502 INPUT id=44 target=77.00 displayed=59.75 drag=false timer=true value=77
+11:41:53 tick=1502 FRAME id=44 target=77.00 displayed=62.23 drag=false timer=true 
+11:41:53 tick=1503 INPUT id=45 target=79.00 displayed=62.23 drag=false timer=true value=79
+11:41:53 tick=1503 INPUT id=46 target=81.00 displayed=63.49 drag=false timer=true value=81
+11:41:53 tick=1503 INPUT id=47 target=83.00 displayed=63.49 drag=false timer=true value=83
+11:41:53 tick=1504 INPUT id=48 target=85.00 displayed=64.95 drag=false timer=true value=85
+11:41:53 tick=1504 INPUT id=49 target=87.00 displayed=66.45 drag=false timer=true value=87
+11:41:53 tick=1504 FRAME id=49 target=87.00 displayed=67.99 drag=false timer=true 
+11:41:53 tick=1504 INPUT id=50 target=89.00 displayed=67.99 drag=false timer=true value=89
+11:41:53 tick=1506 PLUGIN id=50 target=89.00 displayed=71.01 drag=false timer=true 50 89 gen=50 desired=89 confirmed=5 raw=-1 op=1 rawGen=45 rawCount=35 requested=79 dirty=1
+11:41:53 tick=1506 FRAME id=50 target=89.00 displayed=73.60 drag=false timer=true 
+11:41:53 tick=1507 ANIMATION_END id=50 target=89.00 displayed=74.76 drag=false timer=false 
+11:41:53 tick=1509 FRAME id=50 target=89.00 displayed=79.35 drag=false timer=true 
+11:41:53 tick=1511 INPUT id=51 target=91.00 displayed=81.35 drag=false timer=true value=91
+11:41:53 tick=1511 INPUT id=52 target=93.00 displayed=81.35 drag=false timer=true value=93
+11:41:53 tick=1512 INPUT id=53 target=95.00 displayed=82.23 drag=false timer=true value=95
+11:41:53 tick=1512 INPUT id=54 target=97.00 displayed=83.18 drag=false timer=true value=97
+11:41:53 tick=1513 PLUGIN id=54 target=97.00 displayed=84.22 drag=false timer=true 52 93 gen=52 desired=93 confirmed=5 raw=-1 op=1 rawGen=50 rawCount=36 requested=89 dirty=1
+11:41:53 tick=1513 FRAME id=54 target=97.00 displayed=85.17 drag=false timer=true 
+11:41:53 tick=1513 INPUT id=55 target=99.00 displayed=85.17 drag=false timer=true value=99
+11:41:53 tick=1515 INPUT id=56 target=100.00 displayed=88.05 drag=false timer=true value=100
+11:41:53 tick=1516 FRAME id=56 target=100.00 displayed=90.54 drag=false timer=true 
+11:41:53 tick=1520 PLUGIN id=56 target=100.00 displayed=94.51 drag=false timer=true 56 100 gen=56 desired=100 confirmed=5 raw=-1 op=1 rawGen=55 rawCount=37 requested=99 dirty=0
+11:41:53 tick=1521 FRAME id=56 target=100.00 displayed=95.65 drag=false timer=true 
+11:41:54 tick=1534 PLUGIN id=56 target=100.00 displayed=99.38 drag=false timer=true 56 5 gen=56 desired=100 confirmed=5 raw=-1 op=1 rawGen=56 rawCount=38 requested=100 dirty=0
+11:41:54 tick=1534 SYNC id=56 target=100.00 displayed=99.38 drag=false timer=true incoming=5 responseId=56
+11:41:54 tick=1534 FRAME id=56 target=5.00 displayed=92.32 drag=false timer=true 
+11:41:54 tick=1534 FRAME id=56 target=5.00 displayed=85.78 drag=false timer=true 
+11:41:54 tick=1535 FRAME id=56 target=5.00 displayed=79.74 drag=false timer=true 
+11:41:54 tick=1535 FRAME id=56 target=5.00 displayed=74.14 drag=false timer=true 
+11:41:54 tick=1536 FRAME id=56 target=5.00 displayed=68.97 drag=false timer=true 
+11:41:54 tick=1537 FRAME id=56 target=5.00 displayed=59.75 drag=false timer=true 
+11:41:54 tick=1538 FRAME id=56 target=5.00 displayed=51.87 drag=false timer=true 
+11:41:54 tick=1539 FRAME id=56 target=5.00 displayed=45.12 drag=false timer=true 
+11:41:54 tick=1540 FRAME id=56 target=5.00 displayed=39.34 drag=false timer=true 
+11:41:54 tick=1541 FRAME id=56 target=5.00 displayed=32.19 drag=false timer=true 
+11:41:54 tick=1543 FRAME id=56 target=5.00 displayed=26.53 drag=false timer=true 
+11:41:54 tick=1545 FRAME id=56 target=5.00 displayed=20.77 drag=false timer=true 
+11:41:54 tick=1547 FRAME id=56 target=5.00 displayed=15.69 drag=false timer=true 
+11:41:54 tick=1552 FRAME id=56 target=5.00 displayed=10.31 drag=false timer=true 
+11:41:54 tick=1553 ANIMATION_END id=56 target=5.00 displayed=9.54 drag=false timer=false 
+11:41:55 tick=1570 FRAME id=56 target=5.00 displayed=5.30 drag=false timer=true 
+11:41:56 tick=1597 PLUGIN id=56 target=5.00 displayed=5.00 drag=false timer=true 56 100 gen=56 desired=100 confirmed=100 raw=100 op=2 rawGen=56 rawCount=39 requested=100 dirty=0
+11:41:56 tick=1597 SYNC id=56 target=5.00 displayed=5.00 drag=false timer=true incoming=100 responseId=56
+11:41:56 tick=1597 FRAME id=56 target=100.00 displayed=12.11 drag=false timer=true 
+11:41:56 tick=1597 FRAME id=56 target=100.00 displayed=18.69 drag=false timer=true 
+11:41:56 tick=1598 FRAME id=56 target=100.00 displayed=24.77 drag=false timer=true 
+11:41:56 tick=1598 FRAME id=56 target=100.00 displayed=30.40 drag=false timer=true 
+11:41:56 tick=1598 ANIMATION_END id=56 target=100.00 displayed=30.40 drag=false timer=false 
+11:41:56 tick=1599 FRAME id=56 target=100.00 displayed=35.61 drag=false timer=true 
+11:41:56 tick=1599 FRAME id=56 target=100.00 displayed=44.88 drag=false timer=true 
+11:41:56 tick=1600 FRAME id=56 target=100.00 displayed=52.82 drag=false timer=true 
+11:41:56 tick=1601 FRAME id=56 target=100.00 displayed=59.62 drag=false timer=true 
+11:41:56 tick=1603 FRAME id=56 target=100.00 displayed=65.44 drag=false timer=true 
+11:41:56 tick=1604 FRAME id=56 target=100.00 displayed=72.63 drag=false timer=true 
+11:41:56 tick=1605 FRAME id=56 target=100.00 displayed=78.33 drag=false timer=true 
+11:41:56 tick=1607 FRAME id=56 target=100.00 displayed=84.12 drag=false timer=true 
+11:41:56 tick=1610 FRAME id=56 target=100.00 displayed=89.24 drag=false timer=true 
+11:41:56 tick=1614 FRAME id=56 target=100.00 displayed=94.66 drag=false timer=true 
+11:41:57 tick=1632 FRAME id=56 target=100.00 displayed=99.67 drag=false timer=true 
+11:41:57 tick=1644 ANIMATION_END id=56 target=100.00 displayed=100.00 drag=false timer=false 
+11:41:58 tick=1667 PLUGIN id=56 target=100.00 displayed=100.00 drag=false timer=false 56 100 gen=56 desired=100 confirmed=100 raw=100 op=2 rawGen=56 rawCount=40 requested=100 dirty=0
+11:42:00 tick=1730 PLUGIN id=56 target=100.00 displayed=100.00 drag=false timer=false 56 100 gen=56 desired=100 confirmed=100 raw=100 op=2 rawGen=56 rawCount=41 requested=100 dirty=0
+11:42:02 tick=1793 PLUGIN id=56 target=100.00 displayed=100.00 drag=false timer=false 56 100 gen=56 desired=100 confirmed=100 raw=100 op=2 rawGen=56 rawCount=42 requested=100 dirty=0
+11:42:04 tick=1856 PLUGIN id=56 target=100.00 displayed=100.00 drag=false timer=false 56 100 gen=56 desired=100 confirmed=100 raw=100 op=2 rawGen=56 rawCount=43 requested=100 dirty=0
+11:42:06 tick=1919 PLUGIN id=56 target=100.00 displayed=100.00 drag=false timer=false 56 100 gen=56 desired=100 confirmed=100 raw=100 op=2 rawGen=56 rawCount=44 requested=100 dirty=0
+11:42:08 tick=1982 PLUGIN id=56 target=100.00 displayed=100.00 drag=false timer=false 56 100 gen=56 desired=100 confirmed=100 raw=100 op=2 rawGen=56 rawCount=45 requested=100 dirty=0
+11:42:10 tick=2052 PLUGIN id=56 target=100.00 displayed=100.00 drag=false timer=false 56 100 gen=56 desired=100 confirmed=100 raw=100 op=2 rawGen=56 rawCount=46 requested=100 dirty=0
+11:42:12 tick=2115 PLUGIN id=56 target=100.00 displayed=100.00 drag=false timer=false 56 100 gen=56 desired=100 confirmed=100 raw=100 op=2 rawGen=56 rawCount=47 requested=100 dirty=0
+11:42:14 tick=2178 PLUGIN id=56 target=100.00 displayed=100.00 drag=false timer=false 56 100 gen=56 desired=100 confirmed=100 raw=100 op=2 rawGen=56 rawCount=48 requested=100 dirty=0
+11:42:16 tick=2241 PLUGIN id=56 target=100.00 displayed=100.00 drag=false timer=false 56 100 gen=56 desired=100 confirmed=100 raw=100 op=2 rawGen=56 rawCount=49 requested=100 dirty=0
+11:42:18 tick=2304 PLUGIN id=56 target=100.00 displayed=100.00 drag=false timer=false 56 100 gen=56 desired=100 confirmed=100 raw=100 op=2 rawGen=56 rawCount=50 requested=100 dirty=0
+11:42:20 tick=2367 PLUGIN id=56 target=100.00 displayed=100.00 drag=false timer=false 56 100 gen=56 desired=100 confirmed=100 raw=100 op=2 rawGen=56 rawCount=51 requested=100 dirty=0
+11:42:22 tick=2437 PLUGIN id=56 target=100.00 displayed=100.00 drag=false timer=false 56 100 gen=56 desired=100 confirmed=100 raw=100 op=2 rawGen=56 rawCount=52 requested=100 dirty=0
+11:42:24 tick=2500 PLUGIN id=56 target=100.00 displayed=100.00 drag=false timer=false 56 100 gen=56 desired=100 confirmed=100 raw=100 op=2 rawGen=56 rawCount=53 requested=100 dirty=0
+11:42:26 tick=2563 PLUGIN id=56 target=100.00 displayed=100.00 drag=false timer=false 56 100 gen=56 desired=100 confirmed=100 raw=100 op=2 rawGen=56 rawCount=54 requested=100 dirty=0
+11:42:28 tick=2626 PLUGIN id=56 target=100.00 displayed=100.00 drag=false timer=false 56 100 gen=56 desired=100 confirmed=100 raw=100 op=2 rawGen=56 rawCount=55 requested=100 dirty=0
+11:42:30 tick=2689 PLUGIN id=56 target=100.00 displayed=100.00 drag=false timer=false 56 100 gen=56 desired=100 confirmed=100 raw=100 op=2 rawGen=56 rawCount=56 requested=100 dirty=0
+11:42:32 tick=2752 PLUGIN id=56 target=100.00 displayed=100.00 drag=false timer=false 56 100 gen=56 desired=100 confirmed=100 raw=100 op=2 rawGen=56 rawCount=57 requested=100 dirty=0
+11:42:34 tick=2815 PLUGIN id=56 target=100.00 displayed=100.00 drag=false timer=false 56 100 gen=56 desired=100 confirmed=100 raw=100 op=2 rawGen=56 rawCount=58 requested=100 dirty=0
+11:42:36 tick=2885 PLUGIN id=56 target=100.00 displayed=100.00 drag=false timer=false 56 100 gen=56 desired=100 confirmed=100 raw=100 op=2 rawGen=56 rawCount=59 requested=100 dirty=0
+11:42:38 tick=2948 PLUGIN id=56 target=100.00 displayed=100.00 drag=false timer=false 56 100 gen=56 desired=100 confirmed=100 raw=100 op=2 rawGen=56 rawCount=60 requested=100 dirty=0
+11:42:40 tick=3011 PLUGIN id=56 target=100.00 displayed=100.00 drag=false timer=false 56 100 gen=56 desired=100 confirmed=100 raw=100 op=2 rawGen=56 rawCount=61 requested=100 dirty=0
+11:42:42 tick=3074 PLUGIN id=56 target=100.00 displayed=100.00 drag=false timer=false 56 100 gen=56 desired=100 confirmed=100 raw=100 op=2 rawGen=56 rawCount=62 requested=100 dirty=0
+11:42:44 tick=3137 PLUGIN id=56 target=100.00 displayed=100.00 drag=false timer=false 56 100 gen=56 desired=100 confirmed=100 raw=100 op=2 rawGen=56 rawCount=63 requested=100 dirty=0
+11:42:46 tick=3200 PLUGIN id=56 target=100.00 displayed=100.00 drag=false timer=false 56 100 gen=56 desired=100 confirmed=100 raw=100 op=2 rawGen=56 rawCount=64 requested=100 dirty=0
+11:42:48 tick=3270 PLUGIN id=56 target=100.00 displayed=100.00 drag=false timer=false 56 100 gen=56 desired=100 confirmed=100 raw=100 op=2 rawGen=56 rawCount=65 requested=100 dirty=0
+11:42:50 tick=3333 PLUGIN id=56 target=100.00 displayed=100.00 drag=false timer=false 56 100 gen=56 desired=100 confirmed=100 raw=100 op=2 rawGen=56 rawCount=66 requested=100 dirty=0
+11:42:52 tick=3396 PLUGIN id=56 target=100.00 displayed=100.00 drag=false timer=false 56 100 gen=56 desired=100 confirmed=100 raw=100 op=2 rawGen=56 rawCount=67 requested=100 dirty=0
+11:42:54 tick=3459 PLUGIN id=56 target=100.00 displayed=100.00 drag=false timer=false 56 100 gen=56 desired=100 confirmed=100 raw=100 op=2 rawGen=56 rawCount=68 requested=100 dirty=0
+11:42:56 tick=3522 PLUGIN id=56 target=100.00 displayed=100.00 drag=false timer=false 56 100 gen=56 desired=100 confirmed=100 raw=100 op=2 rawGen=56 rawCount=69 requested=100 dirty=0
+11:42:58 tick=3585 PLUGIN id=56 target=100.00 displayed=100.00 drag=false timer=false 56 100 gen=56 desired=100 confirmed=100 raw=100 op=2 rawGen=56 rawCount=70 requested=100 dirty=0
+11:43:00 tick=3655 PLUGIN id=56 target=100.00 displayed=100.00 drag=false timer=false 56 100 gen=56 desired=100 confirmed=100 raw=100 op=2 rawGen=56 rawCount=71 requested=100 dirty=0
+11:43:02 tick=3718 PLUGIN id=56 target=100.00 displayed=100.00 drag=false timer=false 56 100 gen=56 desired=100 confirmed=100 raw=100 op=2 rawGen=56 rawCount=72 requested=100 dirty=0
+11:43:04 tick=3781 PLUGIN id=56 target=100.00 displayed=100.00 drag=false timer=false 56 100 gen=56 desired=100 confirmed=100 raw=100 op=2 rawGen=56 rawCount=73 requested=100 dirty=0
+11:43:06 tick=3844 PLUGIN id=56 target=100.00 displayed=100.00 drag=false timer=false 56 100 gen=56 desired=100 confirmed=100 raw=100 op=2 rawGen=56 rawCount=74 requested=100 dirty=0
+11:43:08 tick=3907 PLUGIN id=56 target=100.00 displayed=100.00 drag=false timer=false 56 100 gen=56 desired=100 confirmed=100 raw=100 op=2 rawGen=56 rawCount=75 requested=100 dirty=0
+11:43:10 tick=3977 PLUGIN id=56 target=100.00 displayed=100.00 drag=false timer=false 56 100 gen=56 desired=100 confirmed=100 raw=100 op=2 rawGen=56 rawCount=76 requested=100 dirty=0
+11:43:12 tick=4040 PLUGIN id=56 target=100.00 displayed=100.00 drag=false timer=false 56 100 gen=56 desired=100 confirmed=100 raw=100 op=2 rawGen=56 rawCount=77 requested=100 dirty=0
+11:43:14 tick=4103 PLUGIN id=56 target=100.00 displayed=100.00 drag=false timer=false 56 100 gen=56 desired=100 confirmed=100 raw=100 op=2 rawGen=56 rawCount=78 requested=100 dirty=0
+11:43:16 tick=4166 PLUGIN id=56 target=100.00 displayed=100.00 drag=false timer=false 56 100 gen=56 desired=100 confirmed=100 raw=100 op=2 rawGen=56 rawCount=79 requested=100 dirty=0
+11:43:18 tick=4229 PLUGIN id=56 target=100.00 displayed=100.00 drag=false timer=false 56 100 gen=56 desired=100 confirmed=100 raw=100 op=2 rawGen=56 rawCount=80 requested=100 dirty=0
+11:43:20 tick=4292 PLUGIN id=56 target=100.00 displayed=100.00 drag=false timer=false 56 100 gen=56 desired=100 confirmed=100 raw=100 op=2 rawGen=56 rawCount=81 requested=100 dirty=0
+11:43:22 tick=4362 PLUGIN id=56 target=100.00 displayed=100.00 drag=false timer=false 56 100 gen=56 desired=100 confirmed=100 raw=100 op=2 rawGen=56 rawCount=82 requested=100 dirty=0
+11:43:24 tick=4425 PLUGIN id=56 target=100.00 displayed=100.00 drag=false timer=false 56 100 gen=56 desired=100 confirmed=100 raw=100 op=2 rawGen=56 rawCount=83 requested=100 dirty=0
+11:43:26 tick=4488 PLUGIN id=56 target=100.00 displayed=100.00 drag=false timer=false 56 100 gen=56 desired=100 confirmed=100 raw=100 op=2 rawGen=56 rawCount=84 requested=100 dirty=0
+11:43:28 tick=4551 PLUGIN id=56 target=100.00 displayed=100.00 drag=false timer=false 56 100 gen=56 desired=100 confirmed=100 raw=100 op=2 rawGen=56 rawCount=85 requested=100 dirty=0
+11:43:30 tick=4614 PLUGIN id=56 target=100.00 displayed=100.00 drag=false timer=false 56 100 gen=56 desired=100 confirmed=100 raw=100 op=2 rawGen=56 rawCount=86 requested=100 dirty=0
+11:43:32 tick=4677 PLUGIN id=56 target=100.00 displayed=100.00 drag=false timer=false 56 100 gen=56 desired=100 confirmed=100 raw=100 op=2 rawGen=56 rawCount=87 requested=100 dirty=0
+11:43:34 tick=4740 PLUGIN id=56 target=100.00 displayed=100.00 drag=false timer=false 56 100 gen=56 desired=100 confirmed=100 raw=100 op=2 rawGen=56 rawCount=88 requested=100 dirty=0
+11:43:36 tick=4803 PLUGIN id=56 target=100.00 displayed=100.00 drag=false timer=false 56 100 gen=56 desired=100 confirmed=100 raw=100 op=2 rawGen=56 rawCount=89 requested=100 dirty=0
+11:43:38 tick=4873 PLUGIN id=56 target=100.00 displayed=100.00 drag=false timer=false 56 100 gen=56 desired=100 confirmed=100 raw=100 op=2 rawGen=56 rawCount=90 requested=100 dirty=0
+11:43:40 tick=4936 PLUGIN id=56 target=100.00 displayed=100.00 drag=false timer=false 56 100 gen=56 desired=100 confirmed=100 raw=100 op=2 rawGen=56 rawCount=91 requested=100 dirty=0
+11:43:42 tick=4999 PLUGIN id=56 target=100.00 displayed=100.00 drag=false timer=false 56 100 gen=56 desired=100 confirmed=100 raw=100 op=2 rawGen=56 rawCount=92 requested=100 dirty=0
+11:43:44 tick=5062 PLUGIN id=56 target=100.00 displayed=100.00 drag=false timer=false 56 100 gen=56 desired=100 confirmed=100 raw=100 op=2 rawGen=56 rawCount=93 requested=100 dirty=0
+11:43:46 tick=5125 PLUGIN id=56 target=100.00 displayed=100.00 drag=false timer=false 56 100 gen=56 desired=100 confirmed=100 raw=100 op=2 rawGen=56 rawCount=94 requested=100 dirty=0
+11:43:48 tick=5188 PLUGIN id=56 target=100.00 displayed=100.00 drag=false timer=false 56 100 gen=56 desired=100 confirmed=100 raw=100 op=2 rawGen=56 rawCount=95 requested=100 dirty=0
+11:43:50 tick=5251 PLUGIN id=56 target=100.00 displayed=100.00 drag=false timer=false 56 100 gen=56 desired=100 confirmed=100 raw=100 op=2 rawGen=56 rawCount=96 requested=100 dirty=0
+11:43:52 tick=5314 PLUGIN id=56 target=100.00 displayed=100.00 drag=false timer=false 56 100 gen=56 desired=100 confirmed=100 raw=100 op=2 rawGen=56 rawCount=97 requested=100 dirty=0
+11:43:54 tick=5384 PLUGIN id=56 target=100.00 displayed=100.00 drag=false timer=false 56 100 gen=56 desired=100 confirmed=100 raw=100 op=2 rawGen=56 rawCount=98 requested=100 dirty=0
+11:43:56 tick=5447 PLUGIN id=56 target=100.00 displayed=100.00 drag=false timer=false 56 100 gen=56 desired=100 confirmed=100 raw=100 op=2 rawGen=56 rawCount=99 requested=100 dirty=0
+11:43:58 tick=5510 PLUGIN id=56 target=100.00 displayed=100.00 drag=false timer=false 56 100 gen=56 desired=100 confirmed=100 raw=100 op=2 rawGen=56 rawCount=100 requested=100 dirty=0
+11:44:00 tick=5573 PLUGIN id=56 target=100.00 displayed=100.00 drag=false timer=false 56 100 gen=56 desired=100 confirmed=100 raw=100 op=2 rawGen=56 rawCount=101 requested=100 dirty=0
+11:44:02 tick=5636 PLUGIN id=56 target=100.00 displayed=100.00 drag=false timer=false 56 100 gen=56 desired=100 confirmed=100 raw=100 op=2 rawGen=56 rawCount=102 requested=100 dirty=0
+11:44:04 tick=5699 PLUGIN id=56 target=100.00 displayed=100.00 drag=false timer=false 56 100 gen=56 desired=100 confirmed=100 raw=100 op=2 rawGen=56 rawCount=103 requested=100 dirty=0
+11:44:06 tick=5769 PLUGIN id=56 target=100.00 displayed=100.00 drag=false timer=false 56 100 gen=56 desired=100 confirmed=100 raw=100 op=2 rawGen=56 rawCount=104 requested=100 dirty=0
+11:44:08 tick=5832 PLUGIN id=56 target=100.00 displayed=100.00 drag=false timer=false 56 100 gen=56 desired=100 confirmed=100 raw=100 op=2 rawGen=56 rawCount=105 requested=100 dirty=0
+11:44:10 tick=5895 PLUGIN id=56 target=100.00 displayed=100.00 drag=false timer=false 56 100 gen=56 desired=100 confirmed=100 raw=100 op=2 rawGen=56 rawCount=106 requested=100 dirty=0
+11:44:12 tick=5958 PLUGIN id=56 target=100.00 displayed=100.00 drag=false timer=false 56 100 gen=56 desired=100 confirmed=100 raw=100 op=2 rawGen=56 rawCount=107 requested=100 dirty=0
+11:44:14 tick=6021 PLUGIN id=56 target=100.00 displayed=100.00 drag=false timer=false 56 100 gen=56 desired=100 confirmed=100 raw=100 op=2 rawGen=56 rawCount=108 requested=100 dirty=0
+11:44:16 tick=6084 PLUGIN id=56 target=100.00 displayed=100.00 drag=false timer=false 56 100 gen=56 desired=100 confirmed=100 raw=100 op=2 rawGen=56 rawCount=109 requested=100 dirty=0
+11:44:18 tick=6154 PLUGIN id=56 target=100.00 displayed=100.00 drag=false timer=false 56 100 gen=56 desired=100 confirmed=100 raw=100 op=2 rawGen=56 rawCount=110 requested=100 dirty=0
+11:44:20 tick=6217 PLUGIN id=56 target=100.00 displayed=100.00 drag=false timer=false 56 100 gen=56 desired=100 confirmed=100 raw=100 op=2 rawGen=56 rawCount=111 requested=100 dirty=0
+11:44:22 tick=6280 PLUGIN id=56 target=100.00 displayed=100.00 drag=false timer=false 56 100 gen=56 desired=100 confirmed=100 raw=100 op=2 rawGen=56 rawCount=112 requested=100 dirty=0
+11:44:24 tick=6343 PLUGIN id=56 target=100.00 displayed=100.00 drag=false timer=false 56 100 gen=56 desired=100 confirmed=100 raw=100 op=2 rawGen=56 rawCount=113 requested=100 dirty=0
+11:44:26 tick=6406 PLUGIN id=56 target=100.00 displayed=100.00 drag=false timer=false 56 100 gen=56 desired=100 confirmed=100 raw=100 op=2 rawGen=56 rawCount=114 requested=100 dirty=0
+11:44:28 tick=6469 PLUGIN id=56 target=100.00 displayed=100.00 drag=false timer=false 56 100 gen=56 desired=100 confirmed=100 raw=100 op=2 rawGen=56 rawCount=115 requested=100 dirty=0
+11:44:30 tick=6539 PLUGIN id=56 target=100.00 displayed=100.00 drag=false timer=false 56 100 gen=56 desired=100 confirmed=100 raw=100 op=2 rawGen=56 rawCount=116 requested=100 dirty=0
+11:44:32 tick=6602 PLUGIN id=56 target=100.00 displayed=100.00 drag=false timer=false 56 100 gen=56 desired=100 confirmed=100 raw=100 op=2 rawGen=56 rawCount=117 requested=100 dirty=0
+11:44:34 tick=6665 PLUGIN id=56 target=100.00 displayed=100.00 drag=false timer=false 56 100 gen=56 desired=100 confirmed=100 raw=100 op=2 rawGen=56 rawCount=118 requested=100 dirty=0
+11:44:36 tick=6728 PLUGIN id=56 target=100.00 displayed=100.00 drag=false timer=false 56 100 gen=56 desired=100 confirmed=100 raw=100 op=2 rawGen=56 rawCount=119 requested=100 dirty=0
+11:44:38 tick=6791 PLUGIN id=56 target=100.00 displayed=100.00 drag=false timer=false 56 100 gen=56 desired=100 confirmed=100 raw=100 op=2 rawGen=56 rawCount=120 requested=100 dirty=0
+11:44:40 tick=6854 PLUGIN id=56 target=100.00 displayed=100.00 drag=false timer=false 56 100 gen=56 desired=100 confirmed=100 raw=100 op=2 rawGen=56 rawCount=121 requested=100 dirty=0
+11:44:42 tick=6917 PLUGIN id=56 target=100.00 displayed=100.00 drag=false timer=false 56 100 gen=56 desired=100 confirmed=100 raw=100 op=2 rawGen=56 rawCount=122 requested=100 dirty=0
+11:44:44 tick=6980 PLUGIN id=56 target=100.00 displayed=100.00 drag=false timer=false 56 100 gen=56 desired=100 confirmed=100 raw=100 op=2 rawGen=56 rawCount=123 requested=100 dirty=0
+11:44:47 tick=7050 PLUGIN id=56 target=100.00 displayed=100.00 drag=false timer=false 56 100 gen=56 desired=100 confirmed=100 raw=100 op=2 rawGen=56 rawCount=124 requested=100 dirty=0
+11:44:48 tick=7113 PLUGIN id=56 target=100.00 displayed=100.00 drag=false timer=false 56 100 gen=56 desired=100 confirmed=100 raw=100 op=2 rawGen=56 rawCount=125 requested=100 dirty=0
+11:44:50 tick=7176 PLUGIN id=56 target=100.00 displayed=100.00 drag=false timer=false 56 100 gen=56 desired=100 confirmed=100 raw=100 op=2 rawGen=56 rawCount=126 requested=100 dirty=0
+11:44:52 tick=7239 PLUGIN id=56 target=100.00 displayed=100.00 drag=false timer=false 56 100 gen=56 desired=100 confirmed=100 raw=100 op=2 rawGen=56 rawCount=127 requested=100 dirty=0
+11:44:54 tick=7302 PLUGIN id=56 target=100.00 displayed=100.00 drag=false timer=false 56 100 gen=56 desired=100 confirmed=100 raw=100 op=2 rawGen=56 rawCount=128 requested=100 dirty=0
+11:44:56 tick=7365 PLUGIN id=56 target=100.00 displayed=100.00 drag=false timer=false 56 100 gen=56 desired=100 confirmed=100 raw=100 op=2 rawGen=56 rawCount=129 requested=100 dirty=0
+11:44:58 tick=7428 PLUGIN id=56 target=100.00 displayed=100.00 drag=false timer=false 56 100 gen=56 desired=100 confirmed=100 raw=100 op=2 rawGen=56 rawCount=130 requested=100 dirty=0
+11:45:01 tick=7498 PLUGIN id=56 target=100.00 displayed=100.00 drag=false timer=false 56 100 gen=56 desired=100 confirmed=100 raw=100 op=2 rawGen=56 rawCount=131 requested=100 dirty=0
+11:45:03 tick=7561 PLUGIN id=56 target=100.00 displayed=100.00 drag=false timer=false 56 100 gen=56 desired=100 confirmed=100 raw=100 op=2 rawGen=56 rawCount=132 requested=100 dirty=0
+11:45:05 tick=7624 PLUGIN id=56 target=100.00 displayed=100.00 drag=false timer=false 56 100 gen=56 desired=100 confirmed=100 raw=100 op=2 rawGen=56 rawCount=133 requested=100 dirty=0
+11:45:07 tick=7687 PLUGIN id=56 target=100.00 displayed=100.00 drag=false timer=false 56 100 gen=56 desired=100 confirmed=100 raw=100 op=2 rawGen=56 rawCount=134 requested=100 dirty=0
+11:45:09 tick=7750 PLUGIN id=56 target=100.00 displayed=100.00 drag=false timer=false 56 100 gen=56 desired=100 confirmed=100 raw=100 op=2 rawGen=56 rawCount=135 requested=100 dirty=0
+11:45:10 tick=7813 PLUGIN id=56 target=100.00 displayed=100.00 drag=false timer=false 56 100 gen=56 desired=100 confirmed=100 raw=100 op=2 rawGen=56 rawCount=136 requested=100 dirty=0
+11:45:13 tick=7883 PLUGIN id=56 target=100.00 displayed=100.00 drag=false timer=false 56 100 gen=56 desired=100 confirmed=100 raw=100 op=2 rawGen=56 rawCount=137 requested=100 dirty=0
+11:45:15 tick=7946 PLUGIN id=56 target=100.00 displayed=100.00 drag=false timer=false 56 100 gen=56 desired=100 confirmed=100 raw=100 op=2 rawGen=56 rawCount=138 requested=100 dirty=0
+11:45:17 tick=8009 PLUGIN id=56 target=100.00 displayed=100.00 drag=false timer=false 56 100 gen=56 desired=100 confirmed=100 raw=100 op=2 rawGen=56 rawCount=139 requested=100 dirty=0
+11:45:19 tick=8072 PLUGIN id=56 target=100.00 displayed=100.00 drag=false timer=false 56 100 gen=56 desired=100 confirmed=100 raw=100 op=2 rawGen=56 rawCount=140 requested=100 dirty=0
+11:45:21 tick=8135 PLUGIN id=56 target=100.00 displayed=100.00 drag=false timer=false 56 100 gen=56 desired=100 confirmed=100 raw=100 op=2 rawGen=56 rawCount=141 requested=100 dirty=0
+11:45:23 tick=8198 PLUGIN id=56 target=100.00 displayed=100.00 drag=false timer=false 56 100 gen=56 desired=100 confirmed=100 raw=100 op=2 rawGen=56 rawCount=142 requested=100 dirty=0
+11:45:25 tick=8261 PLUGIN id=56 target=100.00 displayed=100.00 drag=false timer=false 56 100 gen=56 desired=100 confirmed=100 raw=100 op=2 rawGen=56 rawCount=143 requested=100 dirty=0
+11:45:27 tick=8324 PLUGIN id=56 target=100.00 displayed=100.00 drag=false timer=false 56 100 gen=56 desired=100 confirmed=100 raw=100 op=2 rawGen=56 rawCount=144 requested=100 dirty=0
+11:45:29 tick=8394 PLUGIN id=56 target=100.00 displayed=100.00 drag=false timer=false 56 100 gen=56 desired=100 confirmed=100 raw=100 op=2 rawGen=56 rawCount=145 requested=100 dirty=0
+11:45:31 tick=8457 PLUGIN id=56 target=100.00 displayed=100.00 drag=false timer=false 56 100 gen=56 desired=100 confirmed=100 raw=100 op=2 rawGen=56 rawCount=146 requested=100 dirty=0
+11:45:33 tick=8520 PLUGIN id=56 target=100.00 displayed=100.00 drag=false timer=false 56 100 gen=56 desired=100 confirmed=100 raw=100 op=2 rawGen=56 rawCount=147 requested=100 dirty=0
+11:45:35 tick=8583 PLUGIN id=56 target=100.00 displayed=100.00 drag=false timer=false 56 100 gen=56 desired=100 confirmed=100 raw=100 op=2 rawGen=56 rawCount=148 requested=100 dirty=0
+11:45:37 tick=8646 PLUGIN id=56 target=100.00 displayed=100.00 drag=false timer=false 56 100 gen=56 desired=100 confirmed=100 raw=100 op=2 rawGen=56 rawCount=149 requested=100 dirty=0
+11:45:39 tick=8709 PLUGIN id=56 target=100.00 displayed=100.00 drag=false timer=false 56 100 gen=56 desired=100 confirmed=100 raw=100 op=2 rawGen=56 rawCount=150 requested=100 dirty=0
+11:45:41 tick=8772 PLUGIN id=56 target=100.00 displayed=100.00 drag=false timer=false 56 100 gen=56 desired=100 confirmed=100 raw=100 op=2 rawGen=56 rawCount=151 requested=100 dirty=0
+11:45:43 tick=8842 PLUGIN id=56 target=100.00 displayed=100.00 drag=false timer=false 56 100 gen=56 desired=100 confirmed=100 raw=100 op=2 rawGen=56 rawCount=152 requested=100 dirty=0
+11:45:45 tick=8905 PLUGIN id=56 target=100.00 displayed=100.00 drag=false timer=false 56 100 gen=56 desired=100 confirmed=100 raw=100 op=2 rawGen=56 rawCount=153 requested=100 dirty=0
+11:45:47 tick=8968 PLUGIN id=56 target=100.00 displayed=100.00 drag=false timer=false 56 100 gen=56 desired=100 confirmed=100 raw=100 op=2 rawGen=56 rawCount=154 requested=100 dirty=0
+11:45:49 tick=9031 PLUGIN id=56 target=100.00 displayed=100.00 drag=false timer=false 56 100 gen=56 desired=100 confirmed=100 raw=100 op=2 rawGen=56 rawCount=155 requested=100 dirty=0
+11:45:51 tick=9094 PLUGIN id=56 target=100.00 displayed=100.00 drag=false timer=false 56 100 gen=56 desired=100 confirmed=100 raw=100 op=2 rawGen=56 rawCount=156 requested=100 dirty=0
+11:45:53 tick=9157 PLUGIN id=56 target=100.00 displayed=100.00 drag=false timer=false 56 100 gen=56 desired=100 confirmed=100 raw=100 op=2 rawGen=56 rawCount=157 requested=100 dirty=0
+11:45:55 tick=9227 PLUGIN id=56 target=100.00 displayed=100.00 drag=false timer=false 56 100 gen=56 desired=100 confirmed=100 raw=100 op=2 rawGen=56 rawCount=158 requested=100 dirty=0
+11:45:57 tick=9290 PLUGIN id=56 target=100.00 displayed=100.00 drag=false timer=false 56 100 gen=56 desired=100 confirmed=100 raw=100 op=2 rawGen=56 rawCount=159 requested=100 dirty=0
