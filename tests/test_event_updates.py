@@ -86,6 +86,48 @@ class EventUpdateTests(unittest.TestCase):
         self.assertEqual(skin.vars.BackgroundColor, '0000FF')
         self.assertEqual(skin.vars.MusicCoverAlpha, '255')
 
+    def test_music_forces_new_thumbnail_when_plugin_keeps_old_cover(self):
+        lua = self.runtime('MusicAnimation.lua', Plugin='MediaPlayer')
+        artwork = Path(lua.globals().SKIN.vars.CURRENTPATH) / 'art.jpg'
+        old = b'\xff\xd8' + b'a' * 30 + b'\xff\xd9'
+        new = b'\xff\xd8' + b'b' * 30 + b'\xff\xd9'
+        artwork.write_bytes(old)
+        skin = lua.globals().SKIN
+        skin.GetMeasure(skin, 'MusicProcessRunning').value = 1
+        skin.GetMeasure(skin, 'CoverMeasure').text = str(artwork)
+        skin.GetMeasure(skin, 'TitleMeasure').text = 'First'
+        lua.execute('MetadataChanged()')
+        first = skin.vars.MusicCoverCurrent
+
+        # The plugin only writes the delayed thumbnail after its cover state is reset.
+        lua.execute('''
+            local originalBang = SKIN.Bang
+            local resetting = false
+            local resetCount = 0
+            function SKIN:Bang(...)
+                local args = {...}
+                if args[1] == '!SetOption' and args[2] == 'CoverMeasure' then
+                    resetting = args[4] == 'Title'
+                    if args[4] == 'Cover' then resetCount = resetCount + 1 end
+                elseif args[1] == '!UpdateMeasure' and args[2] == 'CoverMeasure' and resetCount >= 4 and not resetting then
+                    local file = io.open(SKIN:GetMeasure('CoverMeasure').text, 'wb')
+                    file:write(string.char(255,216), string.rep('b',30), string.char(255,217))
+                    file:close()
+                end
+                return originalBang(self, ...)
+            end
+        ''')
+        skin.GetMeasure(skin, 'TitleMeasure').text = 'Second'
+        lua.execute('MetadataChanged(); for i=1,34 do Update() end')
+        self.assertEqual(skin.vars.MusicCoverCurrent, first)
+        lua.execute('Update()')
+        current = skin.vars.MusicCoverCurrent
+        self.assertNotEqual(current, first)
+        self.assertEqual(Path(current).read_bytes(), new)
+        options = [skin.commands[i] for i in range(1, len(skin.commands) + 1)
+                   if skin.commands[i][1] == '!SetOption' and skin.commands[i][2] == 'CoverMeasure']
+        self.assertEqual([item[4] for item in options], ['Title', 'Cover'] * 4)
+
     def test_weather_same_data_does_not_redraw(self):
         lua = self.runtime('WeatherSync.lua')
         source = lua.globals().SKIN.GetMeasure(lua.globals().SKIN, 'WeatherRaw')
