@@ -71,20 +71,20 @@ local function updateCell(i,kind,device)
     for _,meter in ipairs({'MeterImage','MeterMeter','MeterText','MeterValue'}) do
         option(meter..i,'ToolTipText',tooltip)
     end
-    if device then SKIN:Bang('!CommandMeasure','BluetoothWatcher','CELL|'..i..'|'..device.id) end
     if SKIN:GetVariable('WidgetSize')=='Large' then
-        option('MeterText'..i,'Text',label)
+        if not device then option('MeterText'..i,'Text',label) end
         option('MeterValue'..i,'Hidden',unknown and '1' or '0')
         option('MeterMeter'..i,'Hidden',unknown and '1' or '0')
         option('MeterText'..i,'Hidden',kind=='None' and '1' or '0')
     elseif SKIN:GetVariable('WidgetSize')=='Wide' then
-        option('MeterText'..i,'Text',device and label or '%1 %')
+        if not device then option('MeterText'..i,'Text','%1 %') end
         option('MeterText'..i,'FontSize',device and '(#WidgetHeight#*0.06)' or '(#WidgetHeight#*0.1)')
         option('MeterText'..i,'Hidden',unknown and '1' or '0')
         option('MeterMeter'..i,'Hidden',unknown and '1' or '0')
     else
         option('MeterMeter'..i,'Hidden',unknown and '1' or '0')
     end
+    if device then SKIN:Bang('!CommandMeasure','BluetoothWatcher','CELL|'..i..'|'..device.id) end
     SKIN:Bang('!UpdateMeter','MeterImage'..i)
     SKIN:Bang('!UpdateMeter','MeterMeter'..i)
     if SKIN:GetVariable('WidgetSize')=='Large' or SKIN:GetVariable('WidgetSize')=='Wide' then
