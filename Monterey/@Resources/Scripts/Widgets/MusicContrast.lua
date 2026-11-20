@@ -1,4 +1,4 @@
--- Pick the most legible of black and white against the actual widget fill.
+-- Use dark controls only on white and near-white widget fills.
 local function linear(channel)
     channel = channel / 255
     if channel <= 0.04045 then return channel / 12.92 end
@@ -19,8 +19,10 @@ function Update()
     local r, g, b = rgb(SKIN:GetVariable('BackgroundColor'))
     if not r then return 0 end
     local luminance = 0.2126 * linear(r) + 0.7152 * linear(g) + 0.0722 * linear(b)
-    local foreground = luminance >= 0.1791287847 and '000000' or 'FFFFFF'
-    SKIN:Bang('!SetVariable', 'ForegroundColor', foreground)
+    local foreground = luminance >= 0.72 and math.min(r, g, b) >= 210 and '000000' or 'FFFFFF'
+    if SKIN:GetVariable('ForegroundColor', ''):upper() ~= foreground then
+        SKIN:Bang('!SetVariable', 'ForegroundColor', foreground)
+    end
     return luminance
 end
 

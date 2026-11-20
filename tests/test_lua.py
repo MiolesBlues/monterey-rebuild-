@@ -81,6 +81,17 @@ class LuaTests(unittest.TestCase):
         lua.execute("SKIN.vars.BackgroundColor='000000'; Update()")
         self.assertEqual(lua.globals().SKIN.vars.ForegroundColor,'FFFFFF')
 
+    def test_music_text_is_black_only_on_near_white_background(self):
+        lua=self.runtime('MusicContrast.lua')
+        for background,expected in (('FFFFFF','000000'),('EEEAE5','000000'),
+                                    ('255,245,230','000000'),('F94151','FFFFFF'),
+                                    ('48A7D8','FFFFFF'),('FFF000','FFFFFF'),
+                                    ('BBBBBB','FFFFFF'),('202124','FFFFFF')):
+            with self.subTest(background=background):
+                lua.globals().SKIN.vars.BackgroundColor=background
+                lua.execute('Update()')
+                self.assertEqual(lua.globals().SKIN.vars.ForegroundColor,expected)
+
     def test_slider_rejects_stale_acknowledgement(self):
         lua=self.runtime('iOSSlider.lua')
         lua.execute("SKIN:GetMeasure('SystemBrightness').text='0 40'; Update(); Step(1); SKIN:GetMeasure('SystemBrightness').text='0 12'; for i=1,7 do Update() end")
