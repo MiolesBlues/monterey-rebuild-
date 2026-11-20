@@ -30,6 +30,25 @@ class EventUpdateTests(unittest.TestCase):
         lua.execute("clear(); MetadataChanged()")
         self.assertEqual(lua.globals().count('!Redraw'), 0)
 
+    def test_music_new_short_title_is_centered_before_redraw(self):
+        lua = self.runtime('MusicAnimation.lua', WidgetSize='Wide')
+        skin = lua.globals().SKIN
+        skin.GetMeasure(skin, 'MusicProcessRunning').value = 1
+        skin.GetMeter(skin, 'TitleClip').w = 200
+        skin.GetMeter(skin, 'TitleMeter').w = 80
+        skin.GetMeasure(skin, 'TitleMeasure').text = 'First'
+        lua.execute('MetadataChanged(); clear()')
+
+        skin.GetMeter(skin, 'TitleMeter').w = 120
+        skin.GetMeasure(skin, 'TitleMeasure').text = 'Second'
+        lua.execute('MetadataChanged()')
+        self.assertEqual(skin.vars.MusicTitleX, '40')
+        commands = [skin.commands[i] for i in range(1, len(skin.commands) + 1)]
+        centered = next(i for i, command in enumerate(commands)
+                        if command[1] == '!SetVariable' and command[2] == 'MusicTitleX' and command[3] == '40')
+        redraw = next(i for i, command in enumerate(commands) if command[1] == '!Redraw')
+        self.assertLess(centered, redraw)
+
     def test_music_retries_artwork_after_title_changes_at_same_path(self):
         lua = self.runtime('MusicAnimation.lua')
         artwork = Path(lua.globals().SKIN.vars.CURRENTPATH) / 'art.jpg'
