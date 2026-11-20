@@ -61,6 +61,12 @@ median first snapshot was 42 ms. The installed Brightness DLL measured a
 maximum Initialize of 0.11 ms, Reload of 0.008 ms and median first valid value
 of 31 ms over three cycles.
 
+The candidate Bluetooth DLL was installed in the user Rainmeter plugin directory
+and Rainmeter restarted. The process loaded that DLL, all 11 widget Active
+settings matched the pre-install backup, and an installed-DLL probe obtained
+12 rows with no timeout. A two-second idle probe recorded no measurable CPU
+time in either old or new DLL; this short sample is not a soak test.
+
 ## Verification and limits
 
 - Native CTest: 3/3 pass, including 50 Bluetooth lifecycle cycles in a
