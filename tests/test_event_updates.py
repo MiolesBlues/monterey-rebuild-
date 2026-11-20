@@ -56,6 +56,36 @@ class EventUpdateTests(unittest.TestCase):
         lua.execute('clear(); Update()')
         self.assertEqual(lua.globals().count('!Redraw'), 0)
 
+    def test_music_color_waits_for_artwork_and_fades_with_it(self):
+        lua = self.runtime('MusicAnimation.lua', BackgroundColor='000000')
+        artwork = Path(lua.globals().SKIN.vars.CURRENTPATH) / 'art.jpg'
+        artwork.write_bytes(b'\xff\xd8' + b'a' * 30 + b'\xff\xd9')
+        skin = lua.globals().SKIN
+        skin.GetMeasure(skin, 'MusicProcessRunning').value = 1
+        skin.GetMeasure(skin, 'StateMeasure').value = 1
+        skin.GetMeasure(skin, 'CoverMeasure').text = str(artwork)
+        skin.GetMeasure(skin, 'CoverColor').text = 'FF0000'
+        skin.GetMeasure(skin, 'TitleMeasure').text = 'First'
+        lua.execute('MetadataChanged()')
+        self.assertEqual(skin.vars.BackgroundColor, 'FF0000')
+
+        skin.GetMeasure(skin, 'TitleMeasure').text = 'Second'
+        skin.GetMeasure(skin, 'CoverColor').text = '0000FF'
+        lua.execute('MetadataChanged()')
+        self.assertEqual(skin.vars.BackgroundColor, 'FF0000')
+
+        artwork.write_bytes(b'\xff\xd8' + b'b' * 30 + b'\xff\xd9')
+        lua.execute('MetadataChanged()')
+        self.assertEqual(skin.vars.BackgroundColor, 'FF0000')
+        self.assertEqual(skin.vars.MusicCoverAlpha, '0')
+        lua.execute('AnimationFrame()')
+        self.assertNotEqual(skin.vars.BackgroundColor, 'FF0000')
+        self.assertNotEqual(skin.vars.BackgroundColor, '0000FF')
+        self.assertGreater(int(skin.vars.MusicCoverAlpha), 0)
+        lua.execute('for i=1,40 do AnimationFrame() end')
+        self.assertEqual(skin.vars.BackgroundColor, '0000FF')
+        self.assertEqual(skin.vars.MusicCoverAlpha, '255')
+
     def test_weather_same_data_does_not_redraw(self):
         lua = self.runtime('WeatherSync.lua')
         source = lua.globals().SKIN.GetMeasure(lua.globals().SKIN, 'WeatherRaw')
